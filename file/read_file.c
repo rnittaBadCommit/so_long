@@ -12,7 +12,7 @@ static void _copy(char **dest, char **src, int len)
 	}
 }
 
-char **read_file(int fd, t_all *all)
+char **read_file(int fd, e_err *err)
 {
 	char **ret;
 	char **tmp;
@@ -29,7 +29,7 @@ char **read_file(int fd, t_all *all)
 		{
 			if (size > MAP_SIZE_MAX)
 			{
-				all->err = TOO_LARGE_MAP;
+				*err = TOO_LARGE_MAP;
 				return (NULL);
 			}
 			size *= 2;
@@ -40,3 +40,4 @@ char **read_file(int fd, t_all *all)
 	ret[len] = NULL;
 	return (ret);
 }
+
