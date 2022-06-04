@@ -1,3 +1,4 @@
+#include "../so_long.h"
 
 static int _is_rectangle(char **map)
 {

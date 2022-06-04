@@ -1,3 +1,4 @@
+#include "../so_long.h"
 
 static void _copy(char **dest, char **src, int len)
 {
