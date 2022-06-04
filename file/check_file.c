@@ -59,10 +59,12 @@ static int _is_valid_char_num(char **map)
 			else if (map[y][x] == 'C')
 				is_c_exist = 1;
 			else if (map[y][x] == 'P')
+			{
 				if (is_p_exist)
 					return (0);
 				else
 					is_p_exist = 1;
+			}
 			x++;
 		}
 		y++;
@@ -90,20 +92,20 @@ static int _is_closed(char **map)
 	x = 1;
 	y--;
 	while (x < width)
-		if (map[i][j] != '1')
+		if (map[y][x] != '1')
 			return (0);
 	return (1);
 }
 
-int is_valid_map(char **map, t_err *err)
+int is_valid_map(char **map, e_err *err)
 {
-	if (!_is_rectangle(char **map))
-		err->value = NOT_RECTANGLE;
-	if (!_is_only_valid_char(char **map))
-		err->value = INVALID_CHAR;
-	if (!_is_valid_char_num(char **map))
-		err->value = INVALID_CHAR_NUM;
-	if (!_is_closed(char **map))
-		err->value = NOT_CLOSED_MAP;
-	return (err->value != NULL);
+	if (!_is_rectangle(map))
+		*err = NOT_RECTANGLE;
+	if (!_is_only_valid_char(map))
+		*err = INVALID_CHAR;
+	if (!_is_valid_char_num(map))
+		*err = INVALID_CHAR_NUM;
+	if (!_is_closed(map))
+		*err = NOT_CLOSED_MAP;
+	return (*err != NO_ERR);
 }

@@ -27,14 +27,14 @@ char **read_file(int fd, t_all *all)
 	{
 		if (len == size)
 		{
-			if (size > MAX_MAP_SIZE)
+			if (size > MAP_SIZE_MAX)
 			{
 				all->err = TOO_LARGE_MAP;
 				return (NULL);
 			}
 			size *= 2;
-			new = (char **)malloc(size + 1);
-			_copy(new, ret, len);
+			tmp = (char **)malloc(size + 1);
+			_copy(tmp, ret, len);
 		}
 	}
 	ret[len] = NULL;
