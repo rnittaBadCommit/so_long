@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <fcntl.h>
 
 #include "./ft_malloc/ft_malloc.h"
 
@@ -26,6 +27,8 @@ typedef enum
 
 typedef enum
 {
+	BAD_ARG_NUM,
+	BAD_FILE_NAME,
 	TOO_LARGE_MAP,
 	NOT_RECTANGLE,
 	INVALID_CHAR,
