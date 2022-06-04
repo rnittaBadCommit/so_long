@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_malloc.h                                        :+:      :+:    :+:   */
+/*   ft_malloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnitta <rnitta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/21 01:23:09 by rnitta            #+#    #+#             */
-/*   Updated: 2022/04/21 15:24:23 by rnitta           ###   ########.fr       */
+/*   Created: 2022/04/21 01:23:00 by rnitta            #+#    #+#             */
+/*   Updated: 2022/04/21 15:24:28 by rnitta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_MALLOC_H
-# define FT_MALLOC_H
+#include "ft_malloc.h"
 
-# include <stdlib.h>
-# include <stdio.h>
+t_list	*save_list();
 
-typedef struct s_list
+static void	_ft_free_process(t_list *list)
 {
-	struct s_list	*next;
-	void			*p;
-	int				index;
-}				t_list;
+	if (list->next)
+	{
+		_ft_free_process(list->next);
+		free(list->next);
+	}
+	free(list->p);
+}
 
-void	*ft_malloc(size_t size);
-void	ft_free_all(void);
-//void    *ft_malloc_with_index(int size, int index)
+void	ft_free_all(void)
+{
+	t_list	*list;
 
-#endif
+	list = save_list();
+	if (list->next)
+		_ft_free_process(list->next);
+	free(list->next);
+	list->next = NULL;
+	list->p = NULL;
+}

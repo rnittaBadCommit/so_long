@@ -7,4 +7,7 @@
 
 #include "./ft_malloc/ft_malloc.h"
 
+typedef t_err *char
+
+
 #endif
