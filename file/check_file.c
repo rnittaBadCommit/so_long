@@ -93,3 +93,16 @@ static int _is_closed(char **map)
 			return (0);
 	return (1);
 }
+
+int is_valid_map(char **map, t_err *err)
+{
+	if (!_is_rectangle(char **map))
+		err->value = NOT_RECTANGLE;
+	if (!_is_only_valid_char(char **map))
+		err->value = INVALID_CHAR;
+	if (!_is_valid_char_num(char **map))
+		err->value = INVALID_CHAR_NUM;
+	if (!_is_closed(char **map))
+		err->value = NOT_CLOSED_MAP;
+	return (err->value != NULL);
+}
