@@ -9,7 +9,44 @@
 #include "./ft_malloc/ft_malloc.h"
 
 #define MAP_SIZE_MAX 1 << 30
-typedef char **map;
+#define BLOCK_SIZE 10
+#define DISPLAY_NAME "so_long"
+
+typedef struct s_map
+{
+	char **map;
+	int width;
+	int height;
+	int num_collect;
+} t_map;
+
+typedef struct s_resolution
+{
+	int y;
+	int x;
+} t_resolution;
+
+typedef struct s_image
+{
+	int height;
+	int width;
+	void *img;
+	void *addr;
+	int bits_per_pixel;
+	int line_length;
+	int endian;
+} t_image;
+
+typedef struct s_display
+{
+	void *mlx;
+	void *mlx_win;
+	char *name;
+	t_resolution resolution;
+	t_image front_img;
+	t_image back_img;
+} t_display;
+
 typedef struct s_me
 {
 	int y;
@@ -29,6 +66,7 @@ typedef enum
 {
 	BAD_ARG_NUM,
 	BAD_FILE_NAME,
+	CANNOT_OPEN_FILE,
 	TOO_LARGE_MAP,
 	NOT_RECTANGLE,
 	INVALID_CHAR,
@@ -40,7 +78,7 @@ typedef enum
 typedef struct s_all
 {
 	t_me me;
-	char **map;
+	t_map map;
 	e_err err;
 } t_all;
 
