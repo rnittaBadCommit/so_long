@@ -25,3 +25,5 @@ int move(e_dir dir, t_me *me, char **map)
 	else
 		return (NO_MOVE);
 }
+
+
