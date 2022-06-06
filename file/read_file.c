@@ -18,7 +18,6 @@ char **read_file(int fd, e_err *err)
 	char **tmp;
 	int len;
 	int size;
-	int is_eof;
 
 	size = 10;
 	len = 0;

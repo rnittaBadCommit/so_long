@@ -5,8 +5,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <math.h>
 
 #include "./ft_malloc/ft_malloc.h"
+#include "./gnl/get_next_line.h"
 
 #define MAP_SIZE_MAX 1 << 30
 #define BLOCK_SIZE 10
@@ -28,8 +30,6 @@ typedef struct s_resolution
 
 typedef struct s_image
 {
-	int height;
-	int width;
 	void *img;
 	void *addr;
 	int bits_per_pixel;
@@ -81,5 +81,15 @@ typedef struct s_all
 	t_map map;
 	e_err err;
 } t_all;
+
+int		rgb2int(double *rgb);
+void zero_reset(void *a, void *b,void *c, void *d);
+char **read_file(int fd, e_err *err);
+t_map make_map(char *file_name, e_err *err);
+void key_handle(int dir, char **map);
+int is_valid_args(int argc, char **argv, e_err *err);
+int		rgb2int(double *rgb);
+void set_display(t_display *display, t_map map);
+int ft_strlen(char *s);
 
 #endif

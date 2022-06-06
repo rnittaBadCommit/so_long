@@ -11,3 +11,13 @@ void zero_reset(void *a, void *b,void *c, void *d)
 	if (d != NULL)
 		*(int *)d = 0;
 }
+
+int ft_strlen(char *s)
+{
+	int ret;
+
+	ret = 0;
+	while (s[ret])
+		ret++;
+	return (ret);
+}
