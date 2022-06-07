@@ -19,6 +19,12 @@
 # define BLOCK_SIZE 10
 # define DISPLAY_NAME "so_long"
 
+# define KEY_LEFT 65361
+# define KEY_UP 65362
+# define KEY_RIGHT 65363
+# define KEY_DOWN 65364
+# define KEY_ESC 65307
+
 typedef struct s_map
 {
 	char **map;
@@ -64,12 +70,26 @@ typedef struct s_me
 	t_pos previous_pos;
 }	t_me;
 
+enum {
+	KEY_PRESS = 2,
+	KEY_RELEASE = 3,
+	FOCUS_IN = 9,
+	SCREEN_DESTROY = 17
+};
+
+enum {
+	MASK_KEY_PRESS = (1L<<0),
+	MASK_KEY_RELEASE = (1L<<1),
+	MASK_FOCUS_CHANGE = (1L<<21),
+	MASK_STRUCTURE_NOTIFY = (1L<<17),
+}
+
 typedef enum
 {
-	LEFT,
-	RIGHT,
-	UP,
-	DOWN,
+	LEFT = KEY_LEFT,
+	RIGHT = KEY_RIGHT,
+	UP = KEY_UP,
+	DOWN = KEY_DOWN,
 	NO_MOVE,
 } e_dir;
 
@@ -106,5 +126,7 @@ int ft_strlen(char *s);
 int ft_strcmp(char *s1, char *s2);
 int move(e_dir dir, t_me *me, char **map);
 int is_valid_map(char **map, e_err *err);
+void	ft_exit(t_all *all);
+void    update_screen(t_display *display);
 
 #endif
