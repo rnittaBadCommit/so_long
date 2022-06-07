@@ -52,11 +52,17 @@ typedef struct s_display
 	t_image back_img;
 } t_display;
 
-typedef struct s_me
+typedef struct s_pos
 {
 	int y;
 	int x;
-} t_me;
+} t_pos;
+
+typedef struct s_me
+{
+	t_pos current_pos;
+	t_pos previous_pos;
+}	t_me;
 
 typedef enum
 {
@@ -85,6 +91,7 @@ typedef struct s_all
 	t_me me;
 	t_map map;
 	e_err err;
+	t_display display;
 } t_all;
 
 int		rgb2int(double *rgb);
