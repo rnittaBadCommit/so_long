@@ -1,14 +1,8 @@
 #include "../so_long.h"
 
-void move_main(t_all *all, int dir)
+void	finalize(t_all *all)
 {
-	dir = move(dir, &all->me, all->map.map);
-	if (dir != NO_MOVE)
-	{
-		update_image(all->map, all->me.previous_pos, all->me.current_pos, all->display);
-		update_screen(&all->display);
-		update_map();
-	}
+	ft_exit(all);
 }
 
 int main(int argc, char **argv)
@@ -16,11 +10,11 @@ int main(int argc, char **argv)
 	t_all all;
 
 	if (!is_valid_args(argc, argv, &all.err))
-		ft_error(all.err);
+		ft_error(all);
 	all.map = make_map(argv[1], &all.err);
 	if (all.map.map == NULL)
-		ft_error(all.err);
+		ft_error(all);
 	if (!is_valid_map(all.map.map, &all.err))
-		ft_error(all.err);
-	screen_main(all);
+		ft_error(all);
+	screen_main(all, all.display);
 }
