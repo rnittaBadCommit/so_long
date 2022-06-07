@@ -1,5 +1,7 @@
 CC = gcc
 FLAG = -Wall -Wextra -Werror
+INCLUDE = -I/usr/include -Imlx_linux -O3 
+LINK = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 SANI = -g -fsanitize=address
 FLAGSEC = -L./lib/ -lmlx_Linux -Wall -lXext -lX11 -lm
 NAME = miniRT
@@ -10,19 +12,18 @@ SRC_MAIN=./main/check_args.c ./main/main.c ./main/make_map.c ./main/move.c
 SRC_GNL=./gnl/get_next_line.c ./gnl/get_next_line_utils.c
 SRC=$(SRC_FILE) $(SRC_SCREEN) $(SRC_UTILS) $(SRC_MAIN)
 RM = rm -f
-INCS = includes
 OJ = $(SRC:.c=.o)
 
 .c.o:
-	$(CC) $(FLAG) -c $< -o $@ -I $(INCS)
+	$(CC) $(FLAG) $(INCLUDE) -c $< -o $@
 
 $(NAME): $(OJ)
-	$(CC) $(FLAG) -o $(NAME) $(OJ) $(FLAGSEC)
+	$(CC) $(OJ) $(LINK) -o $(NAME)
 
 all: $(NAME)
 
 sani: $(NAME)
-	$(CC) $(FLAG) $(SANI) -o $(NAME) $(OJ) $(FLAGSEC)
+	$(CC) $(OJ) $(SANI) $(LINK) -o $(NAME)
 
 clean:
 	$(RM) $(OJ)

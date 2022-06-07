@@ -5,7 +5,7 @@
 # include <sys/ipc.h>
 # include <sys/shm.h>
 # include <X11/extensions/XShm.h>
-# include "./lib/mlx.h"
+# include "./mlx_linux/mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>

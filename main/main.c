@@ -2,7 +2,7 @@
 
 void key_handle(t_all *all, int dir)
 {
-	dir = move(dir, all->me, all->map.map);
+	dir = move(dir, &all->me, all->map.map);
 	if (dir)
 		update_image(dir, all->map);
 }
