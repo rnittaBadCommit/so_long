@@ -56,6 +56,11 @@ typedef struct s_display
 	t_resolution resolution;
 	t_image front_img;
 	t_image back_img;
+	t_image wall;
+	t_image ground;
+	t_image collect;
+	t_image exit;
+	t_image player;
 } t_display;
 
 typedef struct s_pos
@@ -82,7 +87,7 @@ enum {
 	MASK_KEY_RELEASE = (1L<<1),
 	MASK_FOCUS_CHANGE = (1L<<21),
 	MASK_STRUCTURE_NOTIFY = (1L<<17),
-}
+};
 
 typedef enum
 {
@@ -114,19 +119,26 @@ typedef struct s_all
 	t_display display;
 } t_all;
 
-int		rgb2int(double *rgb);
+unsigned int		rgb2int(int r, int g, int b);
 void zero_reset(void *a, void *b,void *c, void *d);
 char **read_file(int fd, e_err *err);
 t_map make_map(char *file_name, e_err *err);
 void key_handle(int dir, char **map);
 int is_valid_args(int argc, char **argv, e_err *err);
-int		rgb2int(double *rgb);
 void set_display(t_display *display, t_map map);
 int ft_strlen(char *s);
 int ft_strcmp(char *s1, char *s2);
 int move(e_dir dir, t_me *me, char **map);
+void move_main(t_all *all, int dir);
 int is_valid_map(char **map, e_err *err);
 void	ft_exit(t_all *all);
 void    update_screen(t_display *display);
+void	screen_main(t_all all, t_display display);
+void	finalize(t_all *all);
+void    *get_addr_of_pixel(t_image img, int y, int x);
+void    update_image(t_display display, t_map map, t_pos previous_pos, t_pos current_pos);
+void    set_block(t_display display, char map_value, t_pos pos);
+void    ft_error(t_all all);
+unsigned int	get_color(t_image img, int y, int x);
 
 #endif
