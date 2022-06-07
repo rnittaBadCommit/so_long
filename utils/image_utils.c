@@ -1,22 +1,30 @@
 #include "../so_long.h"
 
-int		rgb2int(double *rgb)
+void    *get_addr_of_pixel(t_image img, int y, int x)
 {
-	int r;
-	int g;
-	int b;
+    return (img.addr + (y * img.line_length + x * (img.bits_per_pixel / 8)));
+}
 
-	if ((r = (int)rgb[0]) >= 255)
+void    *get_addr_of_block(t_image img, t_pos pos)
+{
+    void    *dst;
+
+    dst = get_addr_of_pixel(img, pos.y * BLOCK_SIZE, pos.x * BLOCK_SIZE);
+    return (dst);
+}
+
+unsigned int		rgb2int(int r, int g, int b)
+{
+	if (r > 255)
 		r = 255;
-	if ((b = (int)rgb[2]) >= 255)
-		b = 255;
-	if ((g = (int)rgb[1]) >= 255)
+	if (g > 255)
 		g = 255;
-	if (r < 0)
-		r = 0;
-	if (b < 0)
-		b = 0;
-	if (g < 0)
-		g = 0;
-	return (r * pow(2, 16) + g * pow(2, 8) + b);
+	if (b > 255)
+		b = 255;
+	return ((r << 16) + (g << 8) + b);
+}
+
+unsigned int	get_color(t_image img, int y, int x)
+{
+	return (*(unsigned int *)get_addr_of_pixel(img, y, x));
 }
