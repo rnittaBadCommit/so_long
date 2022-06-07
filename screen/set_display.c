@@ -10,15 +10,15 @@ static t_image _make_image(void *mlx, t_resolution resolution)
 {
 	t_image img;
 
-	img.img = mlx_new_window(mlx, resolution.y, resolution.x);
+	img.img = mlx_new_window(mlx, resolution.y, resolution.x, DISPLAY_NAME);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
+	return (img);
 }
 
 static void _set_images(t_display *display)
 {
 	display->front_img = _make_image(display->mlx, display->resolution);
 	display->back_img = _make_image(display->mlx, display->resolution);
-
 }
 
 static void _set_mlx_mlxwin(t_display *display)

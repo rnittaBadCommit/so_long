@@ -1,10 +1,10 @@
 #include "../so_long.h"
 
-void key_handle(int dir, char **map)
+void key_handle(t_all *all, int dir)
 {
-	dir = move(dir, map);
+	dir = move(dir, all->me, all->map.map);
 	if (dir)
-		update_image(dir, map);
+		update_image(dir, all->map);
 }
 
 int main(int argc, char **argv)
@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 	all.map = make_map(argv[1], &all.err);
 	if (all.map.map == NULL)
 		ft_error(all.err);
-	if (!is_valid_map(all.map, &all.err))
+	if (!is_valid_map(all.map.map, &all.err))
 		ft_error(all.err);
 	make_screen();
 	make_image();

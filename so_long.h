@@ -1,18 +1,23 @@
 #ifndef SO_LONG_H
 #define SO_LONG_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <math.h>
+# include <X11/Xlib.h>
+# include <sys/ipc.h>
+# include <sys/shm.h>
+# include <X11/extensions/XShm.h>
+# include "./lib/mlx.h"
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <math.h>
 
-#include "./ft_malloc/ft_malloc.h"
-#include "./gnl/get_next_line.h"
+# include "./ft_malloc/ft_malloc.h"
+# include "./gnl/get_next_line.h"
 
-#define MAP_SIZE_MAX 1 << 30
-#define BLOCK_SIZE 10
-#define DISPLAY_NAME "so_long"
+# define MAP_SIZE_MAX 1 << 30
+# define BLOCK_SIZE 10
+# define DISPLAY_NAME "so_long"
 
 typedef struct s_map
 {
@@ -91,5 +96,8 @@ int is_valid_args(int argc, char **argv, e_err *err);
 int		rgb2int(double *rgb);
 void set_display(t_display *display, t_map map);
 int ft_strlen(char *s);
+int ft_strcmp(char *s1, char *s2);
+int move(e_dir dir, t_me *me, char **map);
+int is_valid_map(char **map, e_err *err);
 
 #endif
