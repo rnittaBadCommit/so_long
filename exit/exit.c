@@ -9,6 +9,7 @@ void	ft_finish_screen(t_display display)
 	mlx_destroy_image(display.mlx, display.collect.addr);
 	mlx_destroy_image(display.mlx, display.exit.addr);
 	mlx_destroy_image(display.mlx, display.player.addr);
+	mlx_destroy_window(display.mlx, display.mlx_win);
 }
 
 void	ft_exit(t_all *all)
