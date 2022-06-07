@@ -1,10 +1,15 @@
 #include "../so_long.h"
 
+
+
 void key_handle(t_all *all, int dir)
 {
 	dir = move(dir, &all->me, all->map.map);
-	if (dir)
-		update_image(dir, all->map);
+	if (dir != NO_MOVE)
+	{
+		update_image(all->map, all->me.previous_pos, all->me.current_pos, all->display);
+		update_screen();
+	}
 }
 
 int main(int argc, char **argv)
