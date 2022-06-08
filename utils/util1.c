@@ -33,3 +33,17 @@ int ft_strcmp(char *s1, char *s2)
 	}
 	return (*s1 - *s2);
 }
+
+void	ft_bzero(void *p, int n)
+{
+	char *s;
+	int	i;
+
+	s = (char *)p;
+	i = 0;
+	while (i < n)
+	{
+		s[i] = 0;
+		i++;
+	}
+}

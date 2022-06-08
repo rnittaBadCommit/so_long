@@ -24,6 +24,7 @@ typedef struct s_list
 }				t_list;
 
 void	*ft_malloc(size_t size);
+int		ft_free(void *p);
 void	ft_free_all(void);
 //void    *ft_malloc_with_index(int size, int index)
 

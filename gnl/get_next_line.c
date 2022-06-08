@@ -6,10 +6,11 @@
 /*   By: rnitta <rnitta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/25 14:42:12 by rnitta            #+#    #+#             */
-/*   Updated: 2020/08/25 14:42:12 by rnitta           ###   ########.fr       */
+/*   Updated: 2022/06/08 13:10:56 by rnitta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../ft_malloc/ft_malloc.h"
 #include "get_next_line.h"
 
 int	get_next_line2(int fd, char **line, char *s)
@@ -43,9 +44,9 @@ int	get_next_line(int fd, char **line)
 	char	*s;
 	int		tmp;
 
-	if (!(s = (char *)malloc(BUFFER_SIZE + 2)))
+	if (!(s = (char *)ft_malloc(BUFFER_SIZE + 2)))
 		return (-1);
 	tmp = get_next_line2(fd, line, s);
-	free(s);
+	ft_free(s);
 	return (tmp);
 }

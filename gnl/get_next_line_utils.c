@@ -6,10 +6,11 @@
 /*   By: rnitta <rnitta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/25 14:41:53 by rnitta            #+#    #+#             */
-/*   Updated: 2020/09/28 12:05:12 by rnitta           ###   ########.fr       */
+/*   Updated: 2022/06/08 13:11:02 by rnitta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../ft_malloc/ft_malloc.h"
 #include "get_next_line.h"
 
 int	ft_njoin(char **line, char *s, int n, int tmpi)
@@ -25,7 +26,7 @@ int	ft_njoin(char **line, char *s, int n, int tmpi)
 	while ((i = -1) && s[c] && s[c] != '\n')
 		c++;
 	l = n - (c - tmpi ? tmpi - c : 0);
-	if (!(*line = (char *)malloc(l)))
+	if (!(*line = (char *)ft_malloc(l)))
 		return (-1);
 	while ((ii = 0) || tmp[++i])
 		*(*line + i) = tmp[i];
@@ -37,7 +38,7 @@ int	ft_njoin(char **line, char *s, int n, int tmpi)
 	while (++l <= tmpi)
 		s[i++] = s[l];
 	s[i] = '\0';
-	free(tmp);
+	ft_free(tmp);
 	return (c == tmpi ? 0 : 1);
 }
 
@@ -55,8 +56,8 @@ int	search(char *s, t_s *ss, int fd)
 		s[i] = '\0';
 		s[BUFFER_SIZE + 1] = (tmp->s)[BUFFER_SIZE + 1];
 		tmp = tmp->next;
-		free((ss->next)->s);
-		free(ss->next);
+		ft_free((ss->next)->s);
+		ft_free(ss->next);
 		ss->next = tmp;
 		return (-1);
 	}
@@ -76,7 +77,7 @@ int	ft_ini(char **line, char *s, t_s *ss, int fd)
 	while (s[++i])
 		if (s[i] == '\n' && (ii = i) + 1)
 		{
-			if (!(*line = (char *)malloc(i + 1)))
+			if (!(*line = (char *)ft_malloc(i + 1)))
 				return (-1);
 			*(*line + ii) = '\0';
 			while (--i >= 0)
@@ -88,7 +89,7 @@ int	ft_ini(char **line, char *s, t_s *ss, int fd)
 			return (-2 + ft_save(ss, s, fd, &i));
 		}
 	ii = i + 1;
-	if (!(*line = (char *)malloc(ii)))
+	if (!(*line = (char *)ft_malloc(ii)))
 		return (-1);
 	*(*line + i) = '\0';
 	while (--i >= 0)
@@ -102,12 +103,12 @@ int	ft_save(t_s *ss, char *s, int fd, int *f)
 	t_s *tmp;
 
 	tmp = ss->next;
-	if (!(ss->next = (t_s *)malloc(sizeof(t_s))))
+	if (!(ss->next = (t_s *)ft_malloc(sizeof(t_s))))
 	{
 		*f = -1;
 		return (1);
 	}
-	if (!((ss->next)->s = (char *)malloc(BUFFER_SIZE + 2)))
+	if (!((ss->next)->s = (char *)ft_malloc(BUFFER_SIZE + 2)))
 	{
 		*f = -1;
 		return (1);

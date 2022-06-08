@@ -1,4 +1,4 @@
-#include "../so_long.h"
+#include "../../so_long.h"
 
 static void _move_back2front(t_display *display)
 {

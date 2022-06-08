@@ -52,9 +52,9 @@ void move_main(t_all *all, int dir)
 	if (dir != NO_MOVE)
 	{
 		_update_map(&all->map, all->me.current_pos);
-		update_image(all->display, all->map, all->me.previous_pos, all->me.current_pos);
+		update_image(&all->display, all->map, all->me.previous_pos, all->me.current_pos);
 		update_screen(&all->display);
-		update_image(all->display, all->map, all->me.previous_pos, all->me.current_pos);
+		update_image(&all->display, all->map, all->me.previous_pos, all->me.current_pos);
 		if (_is_finish(all->map, all->me))
 			finalize(all);
 	}

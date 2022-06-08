@@ -1,6 +1,4 @@
-#include "../so_long.h"
-
-
+#include "../../so_long.h"
 
 static int _load_image(void *mlx, t_image *img, char *path)
 {
@@ -10,7 +8,7 @@ static int _load_image(void *mlx, t_image *img, char *path)
     return (0);
 }
 
-int load_images(t_display *display, e_err *err)
+int load_texture(t_display *display, e_err *err)
 {
     if (_load_image(display->mlx, &display->ground, PATH_TO_GROUND_IMAGE) || 
         _load_image(display->mlx, &display->wall, PATH_TO_WALL_IMAGE) || 
@@ -19,7 +17,7 @@ int load_images(t_display *display, e_err *err)
         _load_image(display->mlx, &display->player, PATH_TO_PLAYER_IMAGE))
     {
         *err = MLX_LIB_ERR;
-        return (-1);
+        return (FAILED);
     }
     return (0);
 }

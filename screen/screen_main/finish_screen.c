@@ -1,4 +1,4 @@
-#include "../so_long.h"
+#include "../../so_long.h"
 
 static void    _destroy_all_images(t_display display)
 {

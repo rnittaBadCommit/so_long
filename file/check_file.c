@@ -10,8 +10,11 @@ static int _is_rectangle(char **map)
 	len = ft_strlen(map[0]);
 	i = 1;
 	while (map[i])
+	{
 		if (ft_strlen(map[i]) != len)
 			return (0);
+		i++;
+	}
 	return (1);
 }
 
@@ -80,20 +83,27 @@ static int _is_closed(char **map)
 
 	x = 0;
 	while (map[0][x])
+	{
 		if (map[0][x] != '1')
 			return (0);
+		x++;
+	}
 	width = x - 1;
 	y = 0;
 	while (map[y])
 	{
 		if (map[y][0] != '1' || map[y][width] != '1')
 			return (0);
+		y++;
 	}
 	x = 1;
 	y--;
 	while (x < width)
+	{
 		if (map[y][x] != '1')
 			return (0);
+		x++;
+	}
 	return (1);
 }
 
