@@ -16,8 +16,10 @@ int    set_images(t_display *display, t_map *map, e_err *err)
 {
     if (load_texture(display, err) == FAILED)
         return (FAILED);
-    set_image_buffer(&display->front_img, display, map);
-    set_image_buffer(&display->back_img, display, map);
+    if (set_image_buffer(&display->front_img, display, map, err) == FAILED)
+		return (FAILED);
+    if (set_image_buffer(&display->back_img, display, map, err) == FAILED)
+		return (FAILED);
     return (SUCCESS);
 }
 

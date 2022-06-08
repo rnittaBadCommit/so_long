@@ -5,6 +5,7 @@ static int _load_image(void *mlx, t_image *img, char *path)
     img->img = mlx_xpm_file_to_image(mlx, path, &img->resolution.x, &img->resolution.y);
     if (!img->img)
         return (-1);
+    img->addr = my_mlx_get_data_addr(img->img);
     return (0);
 }
 

@@ -28,3 +28,8 @@ unsigned int	get_color(t_image *img, int y, int x)
 {
 	return (*(unsigned int *)get_addr_of_pixel(img, y, x));
 }
+
+void	*my_mlx_get_data_addr(t_image *img)
+{
+	return (mlx_get_data_addr(img, &img->bits_per_pixel, &img->line_length, &img->endian));
+}

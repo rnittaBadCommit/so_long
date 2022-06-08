@@ -142,7 +142,7 @@ void	finalize(t_all *all);
 //screen_ini
 int set_display(t_display *display, t_map *map, e_err *err);
 int load_texture(t_display *display, e_err *err);
-void set_image_buffer(t_image *img, t_display *display, t_map *map);
+int set_image_buffer(t_image *img, t_display *display, t_map *map, e_err *err);
 
 //screen_main
 void	screen_main(t_all all);
@@ -152,6 +152,7 @@ void    finish_screen(t_display display);
 
 //screen_utils
 void    set_block(t_image *img, t_display *display, char map_value, t_pos pos);
+void	*my_mlx_get_data_addr(t_image *img);
 void    *get_addr_of_pixel(t_image *img, int y, int x);
 unsigned int		rgb2int(int r, int g, int b);
 unsigned int	get_color(t_image *img, int y, int x);

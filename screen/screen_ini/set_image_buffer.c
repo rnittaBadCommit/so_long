@@ -17,17 +17,22 @@ void	_set_image_image_buffer(t_image *img, t_display *display, t_map *map)
 	}
 }
 
-static t_image _make_image_buffer(void *mlx, t_resolution resolution)
+static t_image _make_image_buffer(void *mlx, t_resolution resolution, e_err *err)
 {
 	t_image img;
 
 	img.img = mlx_new_image(mlx, resolution.y, resolution.x);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
+	img.addr = my_mlx_get_data_addr(&img);
+	if (img.addr == NULL)
+		*err = MLX_LIB_ERR;
 	return (img);
 }
 
-void set_image_buffer(t_image *img, t_display *display, t_map *map)
+int set_image_buffer(t_image *img, t_display *display, t_map *map, e_err *err)
 {
-	*img = _make_image_buffer(display->mlx, display->resolution);
+	*img = _make_image_buffer(display->mlx, display->resolution, err);
+	if (*err != NO_ERR)
+		return (FAILED);
     _set_image_image_buffer(img, display, map);
+	return (SUCCESS);
 }
