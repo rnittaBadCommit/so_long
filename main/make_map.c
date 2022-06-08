@@ -30,7 +30,7 @@ static int _map_height(t_map map)
 	i = 0;
 	while (map.map[i])
 		i++;
-	return (i);
+	return (i - 1);
 }
 
 t_map make_map(char *file_name, e_err *err)
