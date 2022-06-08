@@ -14,7 +14,7 @@ SRC_MAIN=./main/check_args.c ./main/main.c ./main/make_map.c
 SRC_MOVE=./move/move.c
 SRC_GNL=./gnl/get_next_line.c ./gnl/get_next_line_utils.c
 SRC_FT_MALLOC=./ft_malloc/ft_free.c ./ft_malloc/ft_malloc.c
-SRC=$(SRC_ERR) $(SRC_EXIT) $(SRC_FILE) $(SRC_SCREEN) $(SRC_UTILS) $(SRC_MAIN) $(SCR_MOVE) $(SRC_GNL) $(SRC_FT_MALLOC)
+SRC=$(SRC_ERR) $(SRC_EXIT) $(SRC_FILE) $(SRC_SCREEN) $(SRC_UTILS) $(SRC_MAIN) $(SRC_MOVE) $(SRC_GNL) $(SRC_FT_MALLOC) 
 RM = rm -f
 OJ = $(SRC:.c=.o)
 
@@ -22,7 +22,7 @@ OJ = $(SRC:.c=.o)
 	$(CC) $(FLAG) $(INCLUDE) -c $< -o $@
 
 $(NAME): $(OJ)
-	$(CC) $(OJ) $(LINK) -o $(NAME)
+	$(CC) $(FLAGSEC) $(OJ) $(LINK) -o $(NAME)
 
 all: $(NAME)
 

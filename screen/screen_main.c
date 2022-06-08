@@ -23,26 +23,10 @@ int	ft_exit_hook(int key, t_all *all)
 	return (1);
 }
 
-void	set_image(t_display display, t_map map)
-{
-	t_pos pos;
-
-	pos.y = 0;
-	while (pos.y < map.height)
-	{
-		pos.x = 0;
-		while (pos.x < map.width)
-		{
-			set_block(display, map.map[pos.y][pos.x], pos);
-			pos.x++;
-		}
-		pos.y++;
-	}
-}
-
 void	screen_main(t_all all, t_display display)
 {
-	load_texture(&all.display);
+	if (load_images(&all.display, &all.err) == -1)
+		ft_error(all);
 	all.display.mlx = mlx_init();
 	all.display.mlx_win = mlx_new_window(all.display.mlx, all.display.resolution.x, all.display.resolution.y, all.display.name);
 	mlx_clear_window(display.mlx, display.mlx_win);

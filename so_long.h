@@ -41,6 +41,7 @@ typedef struct s_resolution
 
 typedef struct s_image
 {
+	t_resolution resolution;
 	void *img;
 	void *addr;
 	int bits_per_pixel;
@@ -108,6 +109,8 @@ typedef enum
 	INVALID_CHAR,
 	INVALID_CHAR_NUM,
 	NOT_CLOSED_MAP,
+	MLX_LIB_ERR,
+
 	NO_ERR,
 } e_err;
 
@@ -140,5 +143,7 @@ void    update_image(t_display display, t_map map, t_pos previous_pos, t_pos cur
 void    set_block(t_display display, char map_value, t_pos pos);
 void    ft_error(t_all all);
 unsigned int	get_color(t_image img, int y, int x);
+int load_images(t_display *display, e_err *err);
+void	set_image(t_display display, t_map map);
 
 #endif
