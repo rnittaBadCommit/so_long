@@ -12,11 +12,11 @@ static int _load_image(void *mlx, t_image *img, char *path)
 
 int load_images(t_display *display, e_err *err)
 {
-    if (_load_image(display->mlx, &display->ground, "PATH_TO_GROUND_IMAGE") || 
-        _load_image(display->mlx, &display->wall, "PATH_TO_WALL_IMAGE") || 
-        _load_image(display->mlx, &display->collect, "PATH_TO_COLLECT_IMAGE") ||
-        _load_image(display->mlx, &display->exit, "PATH_TO_EXIT_IMAGE") ||
-        _load_image(display->mlx, &display->player, "PATH_TO_PLAYER_IMAGE"))
+    if (_load_image(display->mlx, &display->ground, PATH_TO_GROUND_IMAGE) || 
+        _load_image(display->mlx, &display->wall, PATH_TO_WALL_IMAGE) || 
+        _load_image(display->mlx, &display->collect, PATH_TO_COLLECT_IMAGE) ||
+        _load_image(display->mlx, &display->exit, PATH_TO_EXIT_IMAGE) ||
+        _load_image(display->mlx, &display->player, PATH_TO_PLAYER_IMAGE))
     {
         *err = MLX_LIB_ERR;
         return (-1);

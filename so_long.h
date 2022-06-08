@@ -25,6 +25,12 @@
 # define KEY_DOWN 65364
 # define KEY_ESC 65307
 
+# define PATH_TO_GROUND_IMAGE "./xpm/ground.xpm"
+# define PATH_TO_WALL_IMAGE "./xpm/wall.xpm"
+# define PATH_TO_COLLECT_IMAGE "./xpm/collect.xpm"
+# define PATH_TO_EXIT_IMAGE "./xpm/exit.xpm"
+# define PATH_TO_PLAYER_IMAGE "./xpm/player.xpm"
+
 typedef struct s_map
 {
 	char **map;
