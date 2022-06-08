@@ -90,7 +90,7 @@ static int _is_closed(char **map)
 	}
 	width = x - 1;
 	y = 0;
-	while (map[y])
+	while (map[y + 1])
 	{
 		if (map[y][0] != '1' || map[y][width] != '1')
 			return (0);
@@ -111,11 +111,11 @@ int is_valid_map(char **map, e_err *err)
 {
 	if (!_is_rectangle(map))
 		*err = NOT_RECTANGLE;
-	if (!_is_only_valid_char(map))
+	else if (!_is_only_valid_char(map))
 		*err = INVALID_CHAR;
-	if (!_is_valid_char_num(map))
+	else if (!_is_valid_char_num(map))
 		*err = INVALID_CHAR_NUM;
-	if (!_is_closed(map))
+	else if (!_is_closed(map))
 		*err = NOT_CLOSED_MAP;
-	return (*err != NO_ERR);
+	return (*err == NO_ERR);
 }
