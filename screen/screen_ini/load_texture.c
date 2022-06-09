@@ -6,7 +6,7 @@ static int _load_image(void *mlx, t_image *img, char *path)
     if (!img->img)
         return (-1);
     //printf("ini img->addr: %p\n", img->addr);
-    img->addr = my_mlx_get_data_addr(img->img);
+    // img->addr = my_mlx_get_data_addr(img);
     //printf("set img->addr: %p\n", img->addr);
     return (0);
 }

@@ -23,7 +23,7 @@ static t_image _make_image_buffer(void *mlx, t_resolution resolution, e_err *err
 	t_image img;
 
 	img.img = mlx_new_image(mlx, resolution.y, resolution.x);
-	img.addr = my_mlx_get_data_addr(img.img);
+	img.addr = my_mlx_get_data_addr(&img);
 	if (img.addr == NULL)
 		*err = MLX_LIB_ERR;
 	return (img);
