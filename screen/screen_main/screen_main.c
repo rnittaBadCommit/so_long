@@ -57,15 +57,15 @@ void	set_me(t_me *me, t_map map)
 	}
 }
 
-void	screen_main(t_all all)
+void	screen_main(t_all *all)
 {
-	if (set_display(&all.display, &all.map, &all.err) == FAILED)
-		ft_error(&all);
-	set_me(&all.me, all.map);
-	mlx_clear_window(all.display.mlx, all.display.mlx_win);
-	set_screen_from_map(&all);
-	mlx_hook(all.display.mlx_win, KEY_PRESS, MASK_KEY_PRESS, handle_key, &all);
-	mlx_hook(all.display.mlx_win, SCREEN_DESTROY, MASK_STRUCTURE_NOTIFY, ft_exit_hook, &all);
-	mlx_hook(all.display.mlx_win, FOCUS_IN, MASK_FOCUS_CHANGE, re_paste, &all);
-	mlx_loop(all.display.mlx);
+	if (set_display(&all->display, &all->map, &all->err) == FAILED)
+		ft_error(all);
+	set_me(&all->me, all->map);
+	mlx_clear_window(all->display.mlx, all->display.mlx_win);
+	set_screen_from_map(all);
+	mlx_hook(all->display.mlx_win, KEY_PRESS, MASK_KEY_PRESS, handle_key, all);
+	mlx_hook(all->display.mlx_win, SCREEN_DESTROY, MASK_STRUCTURE_NOTIFY, ft_exit_hook, all);
+	mlx_hook(all->display.mlx_win, FOCUS_IN, MASK_FOCUS_CHANGE, re_paste, all);
+	mlx_loop(all->display.mlx);
 }

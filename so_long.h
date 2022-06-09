@@ -153,7 +153,7 @@ int load_texture(t_display *display, e_err *err);
 int set_image_buffer(t_image *img, t_display *display, t_map *map, e_err *err);
 
 //screen_main
-void	screen_main(t_all all);
+void	screen_main(t_all *all);
 void	set_screen_from_map(t_all *all);
 void    update_image(t_display *display, t_map map, t_pos previous_pos, t_pos current_pos);
 void	update_screen(t_display *display, t_map *map, t_pos previous_pos, t_pos current_pos);
