@@ -33,7 +33,7 @@
 # define PATH_TO_WALL_IMAGE "./xpm/wall.xpm"
 # define PATH_TO_COLLECT_IMAGE "./xpm/collect.xpm"
 # define PATH_TO_EXIT_IMAGE "./xpm/exit.xpm"
-# define PATH_TO_PLAYER_ON_EXIT "./xpm/exit.xpm"//./xpm/player_on_exit.xpm"
+# define PATH_TO_PLAYER_ON_EXIT "./xpm/wall.xpm"//./xpm/player_on_exit.xpm"
 # define PATH_TO_PLAYER_IMAGE "./xpm/player.xpm"
 
 typedef struct s_map

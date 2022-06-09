@@ -27,6 +27,7 @@ void	ft_finish_screen(t_display display)
 void	ft_exit(t_all *all)
 {
 	ft_finish_screen(all->display);
+	printf("\n\nft_free_all start\n");
 	ft_free_all();
 	exit(0);
 }

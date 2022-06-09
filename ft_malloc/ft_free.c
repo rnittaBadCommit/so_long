@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnitta <rnitta@student.42.fr>              +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 01:23:00 by rnitta            #+#    #+#             */
-/*   Updated: 2022/06/08 13:37:34 by rnitta           ###   ########.fr       */
+/*   Updated: 2022/06/10 05:17:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,26 @@ t_list	*save_list();
 
 static void	_ft_free_all_process(t_list *list)
 {
+	printf("%p\n", list->next);
 	if (list->next)
 	{
+		printf("a\n");
 		_ft_free_all_process(list->next);
+		
+		printf("b\n");
 		free(list->next);
+		
+		printf("c\n");
 	}
 	free(list->p);
+	
+		printf("d\n");
 }
 
 void	ft_free_all(void)
 {
 	t_list	*list;
-
+printf("\n\nft_free_all\n\n");
 	list = save_list();
 	if (list->next)
 		_ft_free_all_process(list->next);

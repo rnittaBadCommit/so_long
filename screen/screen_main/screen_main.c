@@ -27,6 +27,7 @@ int	handle_key(int key, t_all *all)
 
 int	ft_exit_hook(int key, t_all *all)
 {
+	printf("here\n");
 	if (key == 1 || all)
 		ft_free_all();
 	exit(1);
