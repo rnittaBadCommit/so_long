@@ -9,7 +9,7 @@ int move(e_dir dir, t_me *me, char **map)
 		return (dir);
 	}
 	else if (dir == RIGHT && map[me->current_pos.y][me->current_pos.x + 1] \
-		!= '1')
+			!= '1')
 	{
 		me->current_pos.x++;
 		return (dir);
@@ -20,7 +20,7 @@ int move(e_dir dir, t_me *me, char **map)
 		return (dir);
 	}
 	else if (dir == DOWN && map[me->current_pos.y + 1][me->current_pos.x] \
-		!= '1')
+			!= '1')
 	{
 		me->current_pos.y++;
 		return (dir);
@@ -51,6 +51,10 @@ void move_main(t_all *all, int dir)
 	dir = move(dir, &all->me, all->map.map);
 	if (dir != NO_MOVE)
 	{
+		if (all->step_count < INT_MAX)
+			all->step_count++;
+		ft_putnbr(all->step_count);
+		ft_putchar('\n');
 		_update_map(&all->map, all->me.current_pos);
 		update_screen(&all->display, &all->map, all->me.previous_pos, all->me.current_pos);
 		if (_is_finish(all->map, all->me))

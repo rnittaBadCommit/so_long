@@ -11,6 +11,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <math.h>
+# include <limits.h>
 
 # include "./ft_malloc/ft_malloc.h"
 # include "./gnl/get_next_line.h"
@@ -130,6 +131,7 @@ typedef enum
 
 typedef struct s_all
 {
+	int step_count;
 	t_me me;
 	t_map map;
 	e_err err;
@@ -170,10 +172,13 @@ void    ft_error(t_all *all);
 void	ft_exit(t_all *all);
 
 //general_utils
+void ft_putchar(char c);
+void	ft_putnbr(int n);
 void zero_reset(void *a, void *b,void *c, void *d);
 int ft_strlen(char *s);
 int ft_strcmp(char *s1, char *s2);
 void	ft_bzero(void *p, int n);
+
 
 
 
