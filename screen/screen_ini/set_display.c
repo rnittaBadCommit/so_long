@@ -26,6 +26,5 @@ int set_display(t_display *display, t_map *map, e_err *err)
 	display->name = DISPLAY_NAME;
 	_set_resolution(&display->resolution, map);
 	_set_mlx_mlxwin(display);
-	//printf("err: %d\n", *err);
 	return (set_images(display, err));
 }

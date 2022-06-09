@@ -98,7 +98,6 @@ static int _is_closed(char **map)
 	}
 	x = 1;
 	y--;
-	//printf("%d %d\n", y, x);
 	while (x < width)
 	{
 		if (map[y][x] != '1')

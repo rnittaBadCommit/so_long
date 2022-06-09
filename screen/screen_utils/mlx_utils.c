@@ -2,17 +2,8 @@
 
 void    *get_addr_of_pixel(t_image *img, int y, int x)
 {
-	//printf("get_addr_of_pixel start\n");
     return (img->data_addr + (y * img->line_length + x * (img->bits_per_pixel / 8)));
 }
-
-// void    *get_addr_of_block(t_image *img, t_pos pos)
-// {
-//     void    *dst;
-
-//     dst = get_addr_of_pixel(img, pos.y * BLOCK_SIZE, pos.x * BLOCK_SIZE);
-//     return (dst);
-// }
 
 unsigned int		rgb2int(int r, int g, int b)
 {
@@ -27,8 +18,6 @@ unsigned int		rgb2int(int r, int g, int b)
 
 unsigned int	get_color(t_image *img, int y, int x)
 {
-	//printf("call get_addr_of_pixel from get_color\n");
-	//printf("%p\n", img->addr);
 	return (*(unsigned int *)get_addr_of_pixel(img, y, x));
 }
 

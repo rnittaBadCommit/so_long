@@ -5,9 +5,7 @@ static int _load_image(void *mlx, t_image *img, char *path)
     img->image_addr = mlx_xpm_file_to_image(mlx, path, &img->resolution.x, &img->resolution.y);
     if (!img->image_addr)
         return (-1);
-    //printf("ini img->addr: %p\n", img->addr);
     img->data_addr = my_mlx_get_data_addr(img);
-    //printf("set img->addr: %p\n", img->addr);
     return (0);
 }
 
@@ -23,6 +21,5 @@ int load_texture(t_display *display, e_err *err)
         *err = MLX_LIB_ERR;
         return (FAILED);
     }
-    //printf("\nplayer_addr: %p\n\n", display->player.image_addr);
     return (0);
 }

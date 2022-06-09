@@ -41,15 +41,11 @@ void	update_screen(t_display *display, t_map *map, t_pos previous_pos, t_pos cur
 {
     image_addr *image_addr;
 
-    //printf("update_screen start\n");
 	image_addr = _correspond_image_addr(display, map, previous_pos, current_pos);
     mlx_put_image_to_window(display->mlx, display->mlx_win, image_addr, previous_pos.x * BLOCK_SIZE, previous_pos.y * BLOCK_SIZE);
     if (map->map[current_pos.y][current_pos.x] == 'E')
         image_addr = display->player_on_exit.image_addr;
     else
         image_addr = display->player.image_addr;
-    //printf("current_pos y: %d, x: %d", current_pos.y, current_pos.x);
-    //printf("image_addr %p\n", image_addr);
     mlx_put_image_to_window(display->mlx, display->mlx_win, image_addr, current_pos.x * BLOCK_SIZE, current_pos.y * BLOCK_SIZE);
-    //printf("\n");
 }

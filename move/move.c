@@ -3,7 +3,6 @@
 int move(e_dir dir, t_me *me, char **map)
 {
 	me->previous_pos = me->current_pos;
-	//printf("move me.y: %d, me.x %d\n", me->current_pos.y, me->current_pos.x);
 	if (dir == LEFT && map[me->current_pos.y][me->current_pos.x - 1] != '1')
 	{
 		me->current_pos.x--;
@@ -41,7 +40,6 @@ static void _update_map(t_map *map, t_pos pos)
 
 static int	_is_finish(t_map map, t_me me)
 {
-	//printf("map.num_collect %d\n", map.num_collect);
 	if (map.num_collect == 0 && map.map[me.current_pos.y][me.current_pos.x] == 'E')
 		return (1);
 	else
@@ -51,10 +49,8 @@ static int	_is_finish(t_map map, t_me me)
 void move_main(t_all *all, int dir)
 {
 	dir = move(dir, &all->me, all->map.map);
-	//printf("move_main %d\n", dir);
 	if (dir != NO_MOVE)
 	{
-		//printf("here\n");
 		_update_map(&all->map, all->me.current_pos);
 		update_screen(&all->display, &all->map, all->me.previous_pos, all->me.current_pos);
 		if (_is_finish(all->map, all->me))
