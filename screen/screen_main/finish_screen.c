@@ -2,8 +2,8 @@
 
 static void    _destroy_all_images(t_display display)
 {
-    mlx_destroy_image(display.mlx, display.front_img.img);
-    mlx_destroy_image(display.mlx, display.back_img.img);
+    mlx_destroy_image(display.mlx, display.front_img.image_addr);
+    mlx_destroy_image(display.mlx, display.back_img.image_addr);
 }
 
 void    finish_screen(t_display display)

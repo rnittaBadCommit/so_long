@@ -4,7 +4,7 @@ int	re_paste(t_all *all)
 {
 	printf("repaste start\n");
 	mlx_put_image_to_window(all->display.mlx, all->display.mlx_win,
-		all->display.front_img.img, 0, 0);
+		all->display.front_img.image_addr, 0, 0);
 	return (0);
 }
 
@@ -39,7 +39,7 @@ void	screen_main(t_all all)
 	printf("set_display done\n");
 	mlx_clear_window(all.display.mlx, all.display.mlx_win);
 	printf("clear_window done\n");
-	mlx_put_image_to_window(all.display.mlx, all.display.mlx_win, all.display.front_img.img, 0, 0);
+	mlx_put_image_to_window(all.display.mlx, all.display.mlx_win, all.display.front_img.image_addr, 0, 0);
 	printf("put_image_to_window done\n");
 	mlx_hook(all.display.mlx_win, KEY_PRESS, MASK_KEY_PRESS, handle_key, &all);
 	mlx_hook(all.display.mlx_win, SCREEN_DESTROY, MASK_STRUCTURE_NOTIFY, ft_exit_hook, &all);

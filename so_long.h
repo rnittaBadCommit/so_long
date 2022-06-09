@@ -48,11 +48,15 @@ typedef struct s_resolution
 	int x;
 } t_resolution;
 
+typedef void image_addr;
+typedef void image_data;
+
 typedef struct s_image
 {
 	t_resolution resolution;
-	void *img;
-	void *addr;
+	// void *image_addr;
+	image_addr *image_addr;
+	image_data *data_addr;
 	int bits_per_pixel;
 	int line_length;
 	int endian;

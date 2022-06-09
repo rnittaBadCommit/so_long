@@ -2,7 +2,8 @@
 
 void    *get_addr_of_pixel(t_image *img, int y, int x)
 {
-    return (img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8)));
+	printf("get_addr_of_pixel start\n");
+    return (img->data_addr + (y * img->line_length + x * (img->bits_per_pixel / 8)));
 }
 
 // void    *get_addr_of_block(t_image *img, t_pos pos)
@@ -26,12 +27,12 @@ unsigned int		rgb2int(int r, int g, int b)
 
 unsigned int	get_color(t_image *img, int y, int x)
 {
-	//printf("call get_addr_of_pixel from get_color\n");
+	printf("call get_addr_of_pixel from get_color\n");
 	//printf("%p\n", img->addr);
 	return (*(unsigned int *)get_addr_of_pixel(img, y, x));
 }
 
 void	*my_mlx_get_data_addr(t_image *img)
 {
-	return (mlx_get_data_addr(&img->img, &img->bits_per_pixel, &img->line_length, &img->endian));
+	return (mlx_get_data_addr(&img->image_addr, &img->bits_per_pixel, &img->line_length, &img->endian));
 }

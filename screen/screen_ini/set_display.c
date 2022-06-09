@@ -18,12 +18,8 @@ int    set_images(t_display *display, t_map *map, e_err *err)
 	{
         return (FAILED);
 	}
-	mlx_put_image_to_window(display->mlx, display->mlx_win, display->wall.img, 0, 0);
-	while (1);
-	//printf("load_texture done\n");
     if (set_image_buffer(&display->front_img, display, map, err) == FAILED)
 		return (FAILED);
-	//printf("set_iamge_buffer sone\n");
     if (set_image_buffer(&display->back_img, display, map, err) == FAILED)
 		return (FAILED);
     return (SUCCESS);

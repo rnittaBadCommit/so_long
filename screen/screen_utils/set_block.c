@@ -7,22 +7,22 @@ static void    _set_block_process(t_image *img, t_image *texture, t_pos pos)
     int _y;
     int _x;
 
-    //printf("_set_block_process start\n");
+    printf("_set_block_process start\n");
     _y = 0;
     while (_y < BLOCK_SIZE)
     {
         _x = 0;
         while (_x < BLOCK_SIZE)
         {
-            //printf("y: %d, x: %d\n", _y, _x);
+            printf("y: %d, x: %d\n", _y, _x);
             color = get_color(texture, _y, _x);
-            //printf("get_clolor done\n");
+            printf("get_clolor done\n");
             if (color != rgb2int(255, 255, 255))
             {
                 dest = get_addr_of_pixel(img, pos.y * BLOCK_SIZE + _y, pos.x * BLOCK_SIZE + _x);
-                //printf("get_addr_of_pixel done img->addr: %p, dest: %p\n", img->addr,  dest);
+                printf("get_addr_of_pixel done img->addr: %p, dest: %p\n", img->data_addr,  dest);
                 *(unsigned int *)dest = color;
-                //printf("代入\n");
+                printf("代入\n");
             }
             _x++;
         }

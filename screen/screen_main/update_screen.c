@@ -12,5 +12,5 @@ static void _move_back2front(t_display *display)
 void    update_screen(t_display *display)
 {
     _move_back2front(display);
-    mlx_put_image_to_window(display->mlx, display->mlx_win, display->front_img.img, 0, 0);
+    mlx_put_image_to_window(display->mlx, display->mlx_win, display->front_img.image_addr, 0, 0);
 }
