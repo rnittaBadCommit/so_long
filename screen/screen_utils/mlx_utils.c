@@ -2,7 +2,7 @@
 
 void    *get_addr_of_pixel(t_image *img, int y, int x)
 {
-	printf("get_addr_of_pixel start\n");
+	//printf("get_addr_of_pixel start\n");
     return (img->data_addr + (y * img->line_length + x * (img->bits_per_pixel / 8)));
 }
 
@@ -27,7 +27,7 @@ unsigned int		rgb2int(int r, int g, int b)
 
 unsigned int	get_color(t_image *img, int y, int x)
 {
-	printf("call get_addr_of_pixel from get_color\n");
+	//printf("call get_addr_of_pixel from get_color\n");
 	//printf("%p\n", img->addr);
 	return (*(unsigned int *)get_addr_of_pixel(img, y, x));
 }

@@ -27,7 +27,6 @@ void	ft_finish_screen(t_display display)
 void	ft_exit(t_all *all)
 {
 	ft_finish_screen(all->display);
-	exit(0);
 	ft_free_all();
 	exit(0);
 }

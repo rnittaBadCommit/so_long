@@ -32,6 +32,7 @@
 # define PATH_TO_WALL_IMAGE "./xpm/wall.xpm"
 # define PATH_TO_COLLECT_IMAGE "./xpm/collect.xpm"
 # define PATH_TO_EXIT_IMAGE "./xpm/exit.xpm"
+# define PATH_TO_PLAYER_ON_EXIT "./xpm/exit.xpm"//./xpm/player_on_exit.xpm"
 # define PATH_TO_PLAYER_IMAGE "./xpm/player.xpm"
 
 typedef struct s_map
@@ -74,6 +75,7 @@ typedef struct s_display
 	t_image ground;
 	t_image collect;
 	t_image exit;
+	t_image player_on_exit;
 	t_image player;
 } t_display;
 
@@ -150,8 +152,9 @@ int set_image_buffer(t_image *img, t_display *display, t_map *map, e_err *err);
 
 //screen_main
 void	screen_main(t_all all);
+void	set_screen_from_map(t_all *all);
 void    update_image(t_display *display, t_map map, t_pos previous_pos, t_pos current_pos);
-void    update_screen(t_display *display);
+void	update_screen(t_display *display, t_map *map, t_pos previous_pos, t_pos current_pos);
 void    finish_screen(t_display display);
 
 //screen_utils

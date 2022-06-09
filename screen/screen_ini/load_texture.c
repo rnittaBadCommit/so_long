@@ -17,10 +17,12 @@ int load_texture(t_display *display, e_err *err)
         _load_image(display->mlx, &display->wall, PATH_TO_WALL_IMAGE) ||
         _load_image(display->mlx, &display->collect, PATH_TO_COLLECT_IMAGE) ||
         _load_image(display->mlx, &display->exit, PATH_TO_EXIT_IMAGE) ||
-        _load_image(display->mlx, &display->player, PATH_TO_PLAYER_IMAGE))
+        _load_image(display->mlx, &display->player, PATH_TO_PLAYER_IMAGE) ||
+        _load_image(display->mlx, &display->player_on_exit, PATH_TO_PLAYER_ON_EXIT))
     {
         *err = MLX_LIB_ERR;
         return (FAILED);
     }
+    //printf("\nplayer_addr: %p\n\n", display->player.image_addr);
     return (0);
 }

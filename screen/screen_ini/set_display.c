@@ -12,16 +12,12 @@ static void _set_mlx_mlxwin(t_display *display)
 	display->mlx_win = mlx_new_window(display->mlx, display->resolution.x, display->resolution.y, display->name);
 }
 
-int    set_images(t_display *display, t_map *map, e_err *err)
+int    set_images(t_display *display, e_err *err)
 {
     if (load_texture(display, err) == FAILED)
 	{
         return (FAILED);
 	}
-    if (set_image_buffer(&display->front_img, display, map, err) == FAILED)
-		return (FAILED);
-    if (set_image_buffer(&display->back_img, display, map, err) == FAILED)
-		return (FAILED);
     return (SUCCESS);
 }
 
@@ -31,5 +27,5 @@ int set_display(t_display *display, t_map *map, e_err *err)
 	_set_resolution(&display->resolution, map);
 	_set_mlx_mlxwin(display);
 	//printf("err: %d\n", *err);
-	return (set_images(display, map, err));
+	return (set_images(display, err));
 }

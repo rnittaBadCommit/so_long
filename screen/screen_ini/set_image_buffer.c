@@ -10,7 +10,7 @@ void	_set_image_image_buffer(t_image *img, t_display *display, t_map *map)
 		pos.x = 0;
 		while (pos.x < map->width)
 		{
-			printf("y: %d, x: %d\n", pos.y, pos.x);
+			//printf("y: %d, x: %d\n", pos.y, pos.x);
 			set_block(img, display, map->map[pos.y][pos.x], pos);
 			pos.x++;
 		}
