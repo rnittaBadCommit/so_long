@@ -90,7 +90,7 @@ static int _is_closed(char **map)
 	}
 	width = x - 1;
 	y = 0;
-	while (map[y + 1])
+	while (map[y])
 	{
 		if (map[y][0] != '1' || map[y][width] != '1')
 			return (0);
@@ -98,6 +98,7 @@ static int _is_closed(char **map)
 	}
 	x = 1;
 	y--;
+	printf("%d %d\n", y, x);
 	while (x < width)
 	{
 		if (map[y][x] != '1')
