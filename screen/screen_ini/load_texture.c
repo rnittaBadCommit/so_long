@@ -7,6 +7,7 @@ static int _load_image(void *mlx, t_image *img, char *path)
         return (-1);
     //printf("ini img->addr: %p\n", img->addr);
     img->addr = my_mlx_get_data_addr(img->img);
+    img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length, &img->endian);
     //printf("set img->addr: %p\n", img->addr);
     return (0);
 }

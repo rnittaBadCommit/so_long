@@ -14,6 +14,19 @@ static void	_ini_all(t_all *all)
 int main(int argc, char **argv)
 {
 	t_all all;
+	t_display display;
+	display.mlx = mlx_init();
+	display.mlx_win = mlx_new_window(display.mlx, 1000, 1000, "test");
+	display.ground.img = mlx_xpm_file_to_image(display.mlx, PATH_TO_GROUND_IMAGE, &display.ground.resolution.x, &display.ground.resolution.y);
+	printf("resolution x: %d, y %d\n", display.ground.resolution.x, display.ground.resolution.y);
+	mlx_put_image_to_window(display.mlx, display.mlx_win, display.ground.img, 0, 0);
+	mlx_loop(display.mlx);
+	return(0);
+
+
+
+
+
 
 	_ini_all(&all);
 	if (!is_valid_args(argc, argv, &all.err))

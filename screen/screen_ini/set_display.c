@@ -18,7 +18,9 @@ int    set_images(t_display *display, t_map *map, e_err *err)
 	{
         return (FAILED);
 	}
+	printf("%d %d\n", display->wall.line_length, display->wall.resolution.x);
 	mlx_put_image_to_window(display->mlx, display->mlx_win, display->wall.img, 0, 0);
+	printf("done\n");
 	while (1);
 	//printf("load_texture done\n");
     if (set_image_buffer(&display->front_img, display, map, err) == FAILED)
