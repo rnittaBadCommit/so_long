@@ -7,11 +7,11 @@ static void _copy(char **dest, char **src, int len)
 	i = 0;
 	while (i < len)
 	{
-	//	printf("%d\n", i);
+	//	//printf("%d\n", i);
 		dest[i] = src[i];
 		i++;
 	}
-	// printf("done\n");
+	// //printf("done\n");
 }
 
 char **read_file(int fd, e_err *err)
@@ -21,14 +21,14 @@ char **read_file(int fd, e_err *err)
 	int len;
 	int size;
 
-	size = 3;
+	size = 100;
 	len = 0;
 	ret = (char **)ft_malloc(size + 1);
 	while (get_next_line(fd, ret + len) > 0)
 	{
-		printf("b\n");
-		printf("len: %d, size: %d\n", len, size);
-		len++;	
+		//printf("b\n");
+		//printf("len: %d, size: %d\n", len, size);
+		len++;
 		if (len + 1 == size)
 		{
 			if (size > MAP_SIZE_MAX)
@@ -41,9 +41,9 @@ char **read_file(int fd, e_err *err)
 			_copy(tmp, ret, len);
 			ret = tmp;
 		}
-		printf("a\n");
+		//printf("a\n");
 	}
-	printf("done\n");
+	//printf("done\n");
 	ret[len] = NULL;
 	return (ret);
 }

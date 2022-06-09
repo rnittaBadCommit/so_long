@@ -1,9 +1,10 @@
 #include "../../so_long.h"
 
-int	re_paste(t_display	display)
+int	re_paste(t_all *all)
 {
-	mlx_put_image_to_window(display.mlx, display.mlx_win,
-		display.front_img.img, 0, 0);
+	printf("repaste start\n");
+	mlx_put_image_to_window(all->display.mlx, all->display.mlx_win,
+		all->display.front_img.img, 0, 0);
 	return (0);
 }
 
@@ -15,6 +16,7 @@ void    update_image(t_display *display, t_map map, t_pos previous_pos, t_pos cu
 
 int	handle_key(int key, t_all *all)
 {
+	printf("handle_key start, key: %d\n", key);
 	if (key == KEY_LEFT || key == KEY_RIGHT || key == KEY_UP || key == KEY_DOWN)
 		move_main(all, key);
 	else if (key == KEY_ESC)
@@ -31,12 +33,17 @@ int	ft_exit_hook(int key, t_all *all)
 
 void	screen_main(t_all all)
 {
+	//printf("\n==============\n\nscreen_main\n\n\n");
 	if (set_display(&all.display, &all.map, &all.err) == FAILED)
 		ft_error(&all);
+	printf("set_display done\n");
 	mlx_clear_window(all.display.mlx, all.display.mlx_win);
+	printf("clear_window done\n");
 	mlx_put_image_to_window(all.display.mlx, all.display.mlx_win, all.display.front_img.img, 0, 0);
+	printf("put_image_to_window done\n");
 	mlx_hook(all.display.mlx_win, KEY_PRESS, MASK_KEY_PRESS, handle_key, &all);
 	mlx_hook(all.display.mlx_win, SCREEN_DESTROY, MASK_STRUCTURE_NOTIFY, ft_exit_hook, &all);
 	mlx_hook(all.display.mlx_win, FOCUS_IN, MASK_FOCUS_CHANGE, re_paste, &all);
+	printf("mlx_loop start\n");
 	mlx_loop(all.display.mlx);
 }

@@ -26,6 +26,8 @@ unsigned int		rgb2int(int r, int g, int b)
 
 unsigned int	get_color(t_image *img, int y, int x)
 {
+	//printf("call get_addr_of_pixel from get_color\n");
+	//printf("%p\n", img->addr);
 	return (*(unsigned int *)get_addr_of_pixel(img, y, x));
 }
 
