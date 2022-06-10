@@ -2,7 +2,7 @@
 
 void	_set_image_image_buffer(t_image *img, t_display *display, t_map *map)
 {
-	t_pos pos;
+	t_pos	pos;
 
 	pos.y = 0;
 	while (pos.y < map->height)
@@ -17,9 +17,10 @@ void	_set_image_image_buffer(t_image *img, t_display *display, t_map *map)
 	}
 }
 
-static t_image _make_image_buffer(void *mlx, t_resolution resolution, e_err *err)
+static t_image	_make_image_buffer(void *mlx, \
+	t_resolution resolution, e_err *err)
 {
-	t_image img;
+	t_image	img;
 
 	img.image_addr = mlx_new_image(mlx, resolution.y, resolution.x);
 	img.data_addr = my_mlx_get_data_addr(&img);
@@ -28,7 +29,7 @@ static t_image _make_image_buffer(void *mlx, t_resolution resolution, e_err *err
 	return (img);
 }
 
-int set_image_buffer(t_image *img, t_display *display, t_map *map, e_err *err)
+int	set_image_buffer(t_image *img, t_display *display, t_map *map, e_err *err)
 {
 	*img = _make_image_buffer(display->mlx, display->resolution, err);
 	if (*err != NO_ERR)

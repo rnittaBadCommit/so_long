@@ -13,15 +13,16 @@ static	char	*ft_strncpy(char *dest, char *src, int n)
 	return (tmp);
 }
 
-char			*ft_strndup(char *str, int n)
+char	*ft_strndup(char *str, int n)
 {
-	int			i;
-	char		*new;
+	int		i;
+	char	*new;
 
 	i = 0;
 	while (str[i] && i < n)
 		i++;
-	if (!(new = (char *)malloc(sizeof(char) * (i + 1))))
+	new = (char *)malloc(sizeof(char) * (i + 1));
+	if (!new)
 		return (NULL);
 	return (ft_strncpy(new, (char *)str, i));
 }
@@ -51,7 +52,7 @@ static int	count(char *s, char c)
 	return (i);
 }
 
-char		**ft_split(char *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char	*next;
 	char	**ss;
@@ -60,7 +61,8 @@ char		**ft_split(char *s, char c)
 	while (*s == '\n')
 		s++;
 	i = 0;
-	if (!(ss = (char **)ft_malloc(sizeof(char *) * count(s, c) + 1)))
+	ss = (char **)ft_malloc(sizeof(char *) * count(s, c) + 1);
+	if (!ss)
 		return (NULL);
 	while (*s)
 	{

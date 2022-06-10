@@ -21,7 +21,7 @@ static void	ft_bzero(void *ss, size_t size)
 		s[size] = 0;
 }
 
-t_list	*save_list()
+t_list	*save_list(void)
 {
 	static t_list	save;
 
@@ -44,7 +44,7 @@ static void	_add_malloc_list(void *new, int index)
 void	*ft_malloc(size_t size)
 {
 	void	*ret;
-	int	 index;
+	int		index;
 
 	index = 0;
 	if (!size)

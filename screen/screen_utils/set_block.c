@@ -4,8 +4,8 @@ static void	_set_block_process(t_image *img, t_image *texture, t_pos pos)
 {
 	void			*dest;
 	unsigned int	color;
-	int _y;
-	int _x;
+	int				_y;
+	int				_x;
 
 	_y = 0;
 	while (_y < BLOCK_SIZE)
@@ -16,7 +16,8 @@ static void	_set_block_process(t_image *img, t_image *texture, t_pos pos)
 			color = get_color(texture, _y, _x);
 			if (color != rgb2int(255, 255, 255))
 			{
-				dest = get_addr_of_pixel(img, pos.y * BLOCK_SIZE + _y, pos.x * BLOCK_SIZE + _x);
+				dest = get_addr_of_pixel(img, \
+					pos.y * BLOCK_SIZE + _y, pos.x * BLOCK_SIZE + _x);
 				*(unsigned int *)dest = color;
 			}
 			_x++;

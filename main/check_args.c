@@ -1,12 +1,12 @@
 #include "../so_long.h"
 
-static int _is_valid_arg_num(int argc)
+static int	_is_valid_arg_num(int argc)
 {
 	return (argc == 2);
 }
 
 //".ber" is invalid
-static int _is_valid_file_name(char *file_name)
+static int	_is_valid_file_name(char *file_name)
 {
 	while (*file_name)
 	{
@@ -20,7 +20,7 @@ static int _is_valid_file_name(char *file_name)
 	return (0);
 }
 
-int is_valid_args(int argc, char **argv, e_err *err)
+int	is_valid_args(int argc, char **argv, e_err *err)
 {
 	if (!_is_valid_arg_num(argc))
 		*err = BAD_ARG_NUM;

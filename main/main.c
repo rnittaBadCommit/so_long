@@ -11,9 +11,9 @@ static void	_ini_all(t_all *all)
 	all->err = NO_ERR;
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_all all;
+	t_all	all;
 
 	_ini_all(&all);
 	if (!is_valid_args(argc, argv, &all.err))

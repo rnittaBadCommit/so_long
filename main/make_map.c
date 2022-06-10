@@ -1,8 +1,8 @@
 #include "../so_long.h"
 
-static char **_make_map_map(char *file_name, e_err *err)
+static char	**_make_map_map(char *file_name, e_err *err)
 {
-	int fd;
+	int	fd;
 
 	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
@@ -13,9 +13,9 @@ static char **_make_map_map(char *file_name, e_err *err)
 	return (read_file(fd));
 }
 
-static int _map_width(t_map map)
+static int	_map_width(t_map map)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (map.map[0])
@@ -24,9 +24,9 @@ static int _map_width(t_map map)
 	return (i);
 }
 
-static int _map_height(t_map map)
+static int	_map_height(t_map map)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (map.map[i])
@@ -36,9 +36,9 @@ static int _map_height(t_map map)
 
 int	_count_num_collect(t_map map)
 {
-	int _y;
-	int _x;
-	int ret;
+	int	_y;
+	int	_x;
+	int	ret;
 
 	_y = 0;
 	ret = 0;
@@ -56,9 +56,9 @@ int	_count_num_collect(t_map map)
 	return (ret);
 }
 
-t_map make_map(char *file_name, e_err *err)
+t_map	make_map(char *file_name, e_err *err)
 {
-	t_map map;
+	t_map	map;
 
 	map.map = _make_map_map(file_name, err);
 	if (map.map == NULL)
@@ -68,4 +68,3 @@ t_map make_map(char *file_name, e_err *err)
 	map.num_collect = _count_num_collect(map);
 	return (map);
 }
-

@@ -3,7 +3,7 @@
 void	ft_putchar(char c)
 {
 	if (write(1, &c, 1))
-		return;
+		return ;
 }
 
 void	ft_putnbr(int n)
@@ -17,7 +17,7 @@ void	ft_putnbr(int n)
 		ft_putchar((n + '0'));
 }
 
-void zero_reset(void *a, void *b,void *c, void *d)
+void	zero_reset(void *a, void *b,void *c, void *d)
 {
 	if (a != NULL)
 		*(int *)a = 0;
@@ -29,9 +29,9 @@ void zero_reset(void *a, void *b,void *c, void *d)
 		*(int *)d = 0;
 }
 
-int ft_strlen(char *s)
+int	ft_strlen(char *s)
 {
-	int ret;
+	int	ret;
 
 	ret = 0;
 	while (s[ret])
@@ -39,7 +39,7 @@ int ft_strlen(char *s)
 	return (ret);
 }
 
-int ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
 	while (*s1)
 	{
@@ -53,8 +53,8 @@ int ft_strcmp(char *s1, char *s2)
 
 void	ft_bzero(void *p, int n)
 {
-	char *s;
-	int	i;
+	char	*s;
+	int		i;
 
 	s = (char *)p;
 	i = 0;
@@ -67,7 +67,7 @@ void	ft_bzero(void *p, int n)
 
 void	ft_memcpy(char *dest, char *src, int len)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < len)
