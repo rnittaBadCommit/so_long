@@ -139,7 +139,7 @@ typedef struct s_all
 } t_all;
 
 //file
-char **read_file(int fd, e_err *err);
+char **read_file(int fd);
 int is_valid_map(char **map, e_err *err);
 
 //main
@@ -178,8 +178,8 @@ void zero_reset(void *a, void *b,void *c, void *d);
 int ft_strlen(char *s);
 int ft_strcmp(char *s1, char *s2);
 void	ft_bzero(void *p, int n);
-
-
+void	ft_memcpy(char *dest, char *src, int len);
+char	**ft_split(char *s, char c);
 
 
 

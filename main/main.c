@@ -23,5 +23,5 @@ int main(int argc, char **argv)
 		ft_error(&all);
 	if (!is_valid_map(all.map.map, &all.err))
 		ft_error(&all);
-	screen_main(all);
+	screen_main(&all);
 }

@@ -10,7 +10,7 @@ static char **_make_map_map(char *file_name, e_err *err)
 		*err = CANNOT_OPEN_FILE;
 		return (NULL);
 	}
-	return (read_file(fd, err));
+	return (read_file(fd));
 }
 
 static int _map_width(t_map map)
@@ -18,8 +18,9 @@ static int _map_width(t_map map)
 	int i;
 
 	i = 0;
-	while (map.map[0][i])
-		i++;
+	if (map.map[0])
+		while (map.map[0][i])
+			i++;
 	return (i);
 }
 

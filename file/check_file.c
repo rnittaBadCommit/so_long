@@ -35,7 +35,10 @@ static int _is_only_valid_char(char **map)
 		while (map[y][x])
 		{
 			if (!_is_valid_char(map[y][x]))
+			{
+				printf("y: %d, x:  %d, c: %c, chd: %hd", y, x, map[y][x], map[y][x]);
 				return (0);
+			}
 			x++;
 		}
 		y++;

@@ -64,3 +64,15 @@ void	ft_bzero(void *p, int n)
 		i++;
 	}
 }
+
+void	ft_memcpy(char *dest, char *src, int len)
+{
+	int i;
+
+	i = 0;
+	while (i < len)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+}

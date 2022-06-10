@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 01:23:00 by rnitta            #+#    #+#             */
-/*   Updated: 2022/06/10 05:19:03 by marvin           ###   ########.fr       */
+/*   Updated: 2022/06/10 16:04:49 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	ft_bzero(void *ss, size_t size)
 t_list	*save_list()
 {
 	static t_list	save;
- printf("%p\n", save.next);
+
 	return (&save);
 }
 
