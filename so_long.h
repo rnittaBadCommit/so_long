@@ -15,7 +15,7 @@
 
 # include "./ft_malloc/ft_malloc.h"
 
-# define MAP_SIZE_MAX (1 << 30)
+# define MAP_SIZE_MAX 1073741824
 # define BLOCK_SIZE 40
 # define DISPLAY_NAME "so_long"
 
@@ -49,14 +49,14 @@ typedef struct s_resolution
 	int	x;
 }	t_resolution;
 
-typedef void	image_addr;
-typedef void	image_data;
+typedef void	t_image_addr;
+typedef void	t_image_data;
 
 typedef struct s_image
 {
 	t_resolution	resolution;
-	image_addr		*image_addr;
-	image_data		*data_addr;
+	t_image_addr		*image_addr;
+	t_image_data		*data_addr;
 	int				bits_per_pixel;
 	int				line_length;
 	int				endian;
@@ -64,18 +64,18 @@ typedef struct s_image
 
 typedef struct s_display
 {
-	void	*mlx;
-	void	*mlx_win;
-	char	*name;
-	t_resolution resolution;
-	t_image	front_img;
-	t_image	back_img;
-	t_image	wall;
-	t_image	ground;
-	t_image	collect;
-	t_image	exit;
-	t_image	player_on_exit;
-	t_image	player;
+	void			*mlx;
+	void			*mlx_win;
+	char			*name;
+	t_resolution	resolution;
+	t_image			front_img;
+	t_image			back_img;
+	t_image			wall;
+	t_image			ground;
+	t_image			collect;
+	t_image			exit;
+	t_image			player_on_exit;
+	t_image			player;
 }	t_display;
 
 typedef struct s_pos
@@ -144,7 +144,7 @@ int				is_valid_char(char c);
 //main
 int				is_valid_args(int argc, char **argv, e_err *err);
 t_map			make_map(char *file_name, e_err *err);
-void				finalize(t_all *all);
+void			finalize(t_all *all);
 
 //screen_ini
 int				set_display(t_display *display, t_map *map, e_err *err);
@@ -178,7 +178,7 @@ void			ft_exit(t_all *all);
 //general_utils
 void			ft_putchar(char c);
 void			ft_putnbr(int n);
-void			zero_reset(void *a, void *b,void *c, void *d);
+void			zero_reset(void *a, void *b, void *c, void *d);
 int				ft_strlen(char *s);
 int				ft_strcmp(char *s1, char *s2);
 void			ft_bzero(void *p, int n);

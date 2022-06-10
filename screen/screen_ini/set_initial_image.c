@@ -1,6 +1,6 @@
 #include "../so_long.h"
 
-image_addr	*_correspond_image_addr(t_display *display, \
+t_image_addr	*_correspond_image_addr(t_display *display, \
 	t_map *map, t_pos pos, t_pos player_pos)
 {
 	if (map->map[pos.y][pos.x] == 'E' && \
@@ -25,7 +25,7 @@ image_addr	*_correspond_image_addr(t_display *display, \
 void	set_screen_from_map(t_all *all)
 {
 	t_pos		pos;
-	image_addr	*image_addr;
+	t_image_addr	*image_addr;
 
 	pos.y = 0;
 	while (pos.y < all->map.height)
@@ -46,7 +46,7 @@ void	set_screen_from_map(t_all *all)
 void	update_screen(t_display *display, t_map *map, \
 	t_pos previous_pos, t_pos current_pos)
 {
-	image_addr *image_addr;
+	t_image_addr	*image_addr;
 
 	image_addr = _correspond_image_addr(display, map, \
 		previous_pos, current_pos);

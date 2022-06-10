@@ -1,6 +1,6 @@
 #include "../so_long.h"
 
-static void	_my_mlx_destroy_image(void *mlx, image_addr *addr)
+static void	_my_mlx_destroy_image(void *mlx, t_image_addr *addr)
 {
 	if (mlx && addr)
 		mlx_destroy_image(mlx, addr);
