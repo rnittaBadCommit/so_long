@@ -8,10 +8,10 @@ int	re_paste(t_all *all)
 
 
 
-void    update_image(t_display *display, t_map map, t_pos previous_pos, t_pos current_pos)
+void	update_image(t_display *display, t_map map, t_pos previous_pos, t_pos current_pos)
 {
-    set_block(&display->back_img, display, map.map[previous_pos.y][previous_pos.x], previous_pos);
-    set_block(&display->back_img, display, map.map[current_pos.y][current_pos.x], current_pos);
+	set_block(&display->back_img, display, map.map[previous_pos.y][previous_pos.x], previous_pos);
+	set_block(&display->back_img, display, map.map[current_pos.y][current_pos.x], current_pos);
 }
 
 int	handle_key(int key, t_all *all)

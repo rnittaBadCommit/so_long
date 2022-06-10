@@ -12,13 +12,13 @@ static void _set_mlx_mlxwin(t_display *display)
 	display->mlx_win = mlx_new_window(display->mlx, display->resolution.x, display->resolution.y, display->name);
 }
 
-int    set_images(t_display *display, e_err *err)
+int	set_images(t_display *display, e_err *err)
 {
-    if (load_texture(display, err) == FAILED)
+	if (load_texture(display, err) == FAILED)
 	{
-        return (FAILED);
+		return (FAILED);
 	}
-    return (SUCCESS);
+	return (SUCCESS);
 }
 
 int set_display(t_display *display, t_map *map, e_err *err)

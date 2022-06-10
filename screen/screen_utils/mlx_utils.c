@@ -1,8 +1,8 @@
 #include "../../so_long.h"
 
-void    *get_addr_of_pixel(t_image *img, int y, int x)
+void	*get_addr_of_pixel(t_image *img, int y, int x)
 {
-    return (img->data_addr + (y * img->line_length + x * (img->bits_per_pixel / 8)));
+	return (img->data_addr + (y * img->line_length + x * (img->bits_per_pixel / 8)));
 }
 
 unsigned int		rgb2int(int r, int g, int b)

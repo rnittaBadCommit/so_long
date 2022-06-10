@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_malloc.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/21 01:23:00 by rnitta            #+#    #+#             */
-/*   Updated: 2022/06/10 16:04:49 by marvin           ###   ########.fr       */
-/*                                                                            */
+/*																			*/
+/*														:::	  ::::::::   */
+/*   ft_malloc.c										:+:	  :+:	:+:   */
+/*													+:+ +:+		 +:+	 */
+/*   By: marvin <marvin@student.42.fr>			  +#+  +:+	   +#+		*/
+/*												+#+#+#+#+#+   +#+		   */
+/*   Created: 2022/04/21 01:23:00 by rnitta			#+#	#+#			 */
+/*   Updated: 2022/06/10 16:04:49 by marvin		   ###   ########.fr	   */
+/*																			*/
 /* ************************************************************************** */
 
 #include "ft_malloc.h"
@@ -44,7 +44,7 @@ static void	_add_malloc_list(void *new, int index)
 void	*ft_malloc(size_t size)
 {
 	void	*ret;
-	int     index;
+	int	 index;
 
 	index = 0;
 	if (!size)
