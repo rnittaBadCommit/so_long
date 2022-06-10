@@ -51,11 +51,11 @@
 
 char **read_file(int fd)
 {
-	char *one_line;
-	char *tmp_one_line;
-	int len;
-	int size;
-	int read_ret;
+	char	*one_line;
+	char	*tmp_one_line;
+	int		len;
+	int		size;
+	int		read_ret;
 
 	len = 0;
 	size = 10;
@@ -65,16 +65,15 @@ char **read_file(int fd)
 		read_ret = read(fd, one_line + len, 10);
 		len += read_ret;
 		if (read_ret != 10)
-			break;
+			break ;
 		if (len > size - 15)
 		{
 			size *= 2;
 			tmp_one_line = (char *)ft_malloc(size + 1);
 			ft_memcpy(tmp_one_line, one_line, len);
-			ft_free(one_line);
 			one_line = tmp_one_line;
 		}
 	}
 	one_line[len] = '\0';
-	return(ft_split(one_line, '\n'));
+	return (ft_split(one_line, '\n'));
 }
