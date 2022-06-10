@@ -1,9 +1,9 @@
 #include "../so_long.h"
 
-static int _is_rectangle(char **map)
+static int	_is_rectangle(char **map)
 {
-	int len;
-	int i;
+	int	len;
+	int	i;
 
 	if (map[0] == NULL)
 		return (0);
@@ -18,15 +18,11 @@ static int _is_rectangle(char **map)
 	return (1);
 }
 
-static int _is_valid_char(char c)
-{
-	return (c == '0' || c == '1' || c == 'C' || c == 'E' || c == 'P');
-}
 
-static int _is_only_valid_char(char **map)
+static int	_is_only_valid_char(char **map)
 {
-	int y;
-	int x;
+	int	y;
+	int	x;
 
 	y = 0;
 	while (map[y])
@@ -35,10 +31,7 @@ static int _is_only_valid_char(char **map)
 		while (map[y][x])
 		{
 			if (!_is_valid_char(map[y][x]))
-			{
-				printf("y: %d, x:  %d, c: %c, chd: %hd", y, x, map[y][x], map[y][x]);
 				return (0);
-			}
 			x++;
 		}
 		y++;
@@ -46,15 +39,12 @@ static int _is_only_valid_char(char **map)
 	return (1);
 }
 
-static int _is_valid_char_num(char **map)
+static int	_is_valid_char_num(char **map, int is_e_exist, int is_c_exist, int	is_p_exist)
 {
-	int is_e_exist;
-	int is_c_exist;
-	int is_p_exist;
-	int x;
-	int y;
+	int	x;
+	int	y;
 
-	zero_reset(&is_e_exist, &is_c_exist, &is_p_exist, &y);
+	y = 0;
 	while (map[y])
 	{
 		x = 0;
@@ -78,19 +68,16 @@ static int _is_valid_char_num(char **map)
 	return (is_e_exist * is_c_exist * is_p_exist);
 }
 
-static int _is_closed(char **map)
+static int	_is_closed(char **map)
 {
-	int x;
-	int y;
-	int width;
+	int	x;
+	int	y;
+	int	width;
 
 	x = 0;
 	while (map[0][x])
-	{
-		if (map[0][x] != '1')
+		if (map[0][x++] != '1')
 			return (0);
-		x++;
-	}
 	width = x - 1;
 	y = 0;
 	while (map[y])
@@ -99,24 +86,21 @@ static int _is_closed(char **map)
 			return (0);
 		y++;
 	}
-	x = 1;
+	x = 0;
 	y--;
-	while (x < width)
-	{
+	while (++x < width)
 		if (map[y][x] != '1')
 			return (0);
-		x++;
-	}
 	return (1);
 }
 
-int is_valid_map(char **map, e_err *err)
+int	is_valid_map(char **map, e_err *err)
 {
 	if (!_is_rectangle(map))
 		*err = NOT_RECTANGLE;
 	else if (!_is_only_valid_char(map))
 		*err = INVALID_CHAR;
-	else if (!_is_valid_char_num(map))
+	else if (!_is_valid_char_num(map, 0, 0, 0))
 		*err = INVALID_CHAR_NUM;
 	else if (!_is_closed(map))
 		*err = NOT_CLOSED_MAP;
