@@ -49,7 +49,7 @@
 // }
 #include <string.h>
 
-char **read_file(int fd)
+char	**read_file(int fd)
 {
 	char	*one_line;
 	char	*tmp_one_line;
