@@ -17,7 +17,7 @@ void	ft_putnbr(int n)
 		ft_putchar((n + '0'));
 }
 
-void	zero_reset(void *a, void *b,void *c, void *d)
+void	zero_reset(void *a, void *b, void *c, void *d)
 {
 	if (a != NULL)
 		*(int *)a = 0;

@@ -18,7 +18,6 @@ static int	_is_rectangle(char **map)
 	return (1);
 }
 
-
 static int	_is_only_valid_char(char **map)
 {
 	int	y;
@@ -30,7 +29,7 @@ static int	_is_only_valid_char(char **map)
 		x = 0;
 		while (map[y][x])
 		{
-			if (!_is_valid_char(map[y][x]))
+			if (!is_valid_char(map[y][x]))
 				return (0);
 			x++;
 		}
@@ -39,7 +38,8 @@ static int	_is_only_valid_char(char **map)
 	return (1);
 }
 
-static int	_is_valid_char_num(char **map, int is_e_exist, int is_c_exist, int	is_p_exist)
+static int	_is_valid_char_num(char **map, int is_e_exist, \
+	int is_c_exist, int	is_p_exist)
 {
 	int	x;
 	int	y;
