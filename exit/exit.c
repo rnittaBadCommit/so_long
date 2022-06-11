@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:17:19 by marvin            #+#    #+#             */
-/*   Updated: 2022/06/11 12:17:21 by marvin           ###   ########.fr       */
+/*   Updated: 2022/06/11 14:16:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ void	ft_exit(t_all *all)
 {
 	ft_finish_screen(all->display);
 	ft_free_all();
+    muntrace();
 	exit(0);
 }

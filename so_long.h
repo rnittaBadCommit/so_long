@@ -13,6 +13,7 @@
 # include <math.h>
 # include <limits.h>
 
+#include <mcheck.h>
 # include "./ft_malloc/ft_malloc.h"
 
 # define MAP_SIZE_MAX 1073741824
