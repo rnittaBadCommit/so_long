@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:19:13 by marvin            #+#    #+#             */
-/*   Updated: 2022/06/11 12:19:14 by marvin           ###   ########.fr       */
+/*   Updated: 2022/06/11 14:14:02 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static t_image	_make_image_buffer(void *mlx, \
 	img.image_addr = mlx_new_image(mlx, resolution.y, resolution.x);
 	img.data_addr = my_mlx_get_data_addr(&img);
 	if (img.data_addr == NULL)
-		*err = MLX_LIBx_ERR;
+		*err = MLX_LIB_ERR;
 	return (img);
 }
 
