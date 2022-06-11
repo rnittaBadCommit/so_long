@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:22:39 by marvin            #+#    #+#             */
-/*   Updated: 2022/06/11 12:22:40 by marvin           ###   ########.fr       */
+/*   Updated: 2022/06/11 14:50:46 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ char	**ft_split(char *s, char c)
 
 	while (*s == '\n')
 		s++;
-	ss = (char **)ft_malloc(sizeof(char *) * count(s, c) + 1);
+	ss = (char **)ft_malloc(sizeof(char *) * (count(s, c) + 1));
 	if (!ss)
 		return (NULL);
 	_set_strs(s, ss);

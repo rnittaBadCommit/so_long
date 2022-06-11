@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:18:04 by marvin            #+#    #+#             */
-/*   Updated: 2022/06/11 12:18:06 by marvin           ###   ########.fr       */
+/*   Updated: 2022/06/11 14:30:05 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char	**read_file(int fd)
 
 	len = 0;
 	size = 10;
-	one_line = (char *)malloc(size + 1);
+	one_line = (char *)ft_malloc(size + 1);
 	while (1)
 	{
 		read_ret = read(fd, one_line + len, 10);

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:18:36 by marvin            #+#    #+#             */
-/*   Updated: 2022/06/11 14:16:13 by marvin           ###   ########.fr       */
+/*   Updated: 2022/06/11 14:33:07 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	_ini_all(t_all *all)
 int	main(int argc, char **argv)
 {
 	t_all	all;
-mtrace();
+// mtrace();
 	_ini_all(&all);
 	if (!is_valid_args(argc, argv, &all.err))
 		ft_error(&all);

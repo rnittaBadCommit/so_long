@@ -1,5 +1,5 @@
 CC = gcc
-FLAG = -Wall -Wextra -Werror
+FLAG = -g3 -Wall -Wextra -Werror
 INCLUDE = -I/usr/include -Imlx_linux -O3
 LINK = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 SANI = -g -fsanitize=address

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:19:34 by marvin            #+#    #+#             */
-/*   Updated: 2022/06/11 12:19:35 by marvin           ###   ########.fr       */
+/*   Updated: 2022/06/11 15:03:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,9 @@ int	handle_key(int key, t_all *all)
 	return (0);
 }
 
-int	ft_exit_hook(int key, t_all *all)
+int	ft_exit_hook(t_all *all)
 {
-	if (key == 1 || all)
-		ft_free_all();
-	exit(1);
+	ft_exit(all);
 	return (1);
 }
 
