@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 15:30:04 by marvin            #+#    #+#             */
-/*   Updated: 2022/06/11 15:30:05 by marvin           ###   ########.fr       */
+/*   Updated: 2022/06/12 03:13:42 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # include "./ft_malloc/ft_malloc.h"
 
 # define MAP_SIZE_MAX 1073741824
-# define BLOCK_SIZE 40
+# define BLOCK_SIZE 32
 # define DISPLAY_NAME "so_long"
 
 # define FAILED -1
@@ -44,7 +44,7 @@
 # define PATH_TO_WALL_IMAGE "./xpm/wall.xpm"
 # define PATH_TO_COLLECT_IMAGE "./xpm/collect.xpm"
 # define PATH_TO_EXIT_IMAGE "./xpm/exit.xpm"
-# define PATH_TO_PLAYER_ON_EXIT "./xpm/wall.xpm"//./xpm/player_on_exit.xpm"
+# define PATH_TO_PLAYER_ON_EXIT "./xpm/player_on_exit.xpm"
 # define PATH_TO_PLAYER_IMAGE "./xpm/player.xpm"
 
 typedef struct s_map
