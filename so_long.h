@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/11 15:30:04 by marvin            #+#    #+#             */
+/*   Updated: 2022/06/11 15:30:05 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -13,7 +25,6 @@
 # include <math.h>
 # include <limits.h>
 
-#include <mcheck.h>
 # include "./ft_malloc/ft_malloc.h"
 
 # define MAP_SIZE_MAX 1073741824
@@ -105,16 +116,16 @@ enum {
 	MASK_STRUCTURE_NOTIFY = (1L<<17),
 };
 
-typedef enum
+typedef enum e_dir
 {
 	LEFT = KEY_LEFT,
 	RIGHT = KEY_RIGHT,
 	UP = KEY_UP,
 	DOWN = KEY_DOWN,
 	NO_MOVE,
-} e_dir;
+}	t_dir;
 
-typedef enum
+typedef enum e_err
 {
 	BAD_ARG_NUM,
 	BAD_FILE_NAME,
@@ -126,32 +137,32 @@ typedef enum
 	NOT_CLOSED_MAP,
 	MLX_LIB_ERR,
 	NO_ERR,
-} e_err;
+}	t_err;
 
 typedef struct s_all
 {
 	int			step_count;
 	t_me		me;
 	t_map		map;
-	e_err		err;
+	t_err		err;
 	t_display	display;
 }	t_all;
 
 //file
 char			**read_file(int fd);
-int				is_valid_map(char **map, e_err *err);
+int				is_valid_map(char **map, t_err *err);
 int				is_valid_char(char c);
 
 //main
-int				is_valid_args(int argc, char **argv, e_err *err);
-t_map			make_map(char *file_name, e_err *err);
+int				is_valid_args(int argc, char **argv, t_err *err);
+t_map			make_map(char *file_name, t_err *err);
 void			finalize(t_all *all);
 
 //screen_ini
-int				set_display(t_display *display, t_map *map, e_err *err);
-int				load_texture(t_display *display, e_err *err);
+int				set_display(t_display *display, t_map *map, t_err *err);
+int				load_texture(t_display *display, t_err *err);
 int				set_image_buffer(t_image *img, t_display *display, \
-		t_map *map, e_err *err);
+		t_map *map, t_err *err);
 void			set_me(t_me *me, t_map map);
 
 //screen_main

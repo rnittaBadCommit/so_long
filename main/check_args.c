@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:18:31 by marvin            #+#    #+#             */
-/*   Updated: 2022/06/11 12:18:32 by marvin           ###   ########.fr       */
+/*   Updated: 2022/06/11 15:20:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	_is_valid_file_name(char *file_name)
 	return (0);
 }
 
-int	is_valid_args(int argc, char **argv, e_err *err)
+int	is_valid_args(int argc, char **argv, t_err *err)
 {
 	if (!_is_valid_arg_num(argc))
 		*err = BAD_ARG_NUM;

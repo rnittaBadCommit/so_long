@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:19:00 by marvin            #+#    #+#             */
-/*   Updated: 2022/06/11 12:19:01 by marvin           ###   ########.fr       */
+/*   Updated: 2022/06/11 15:20:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	_load_image(void *mlx, t_image *img, char *path)
 	return (0);
 }
 
-int	load_texture(t_display *display, e_err *err)
+int	load_texture(t_display *display, t_err *err)
 {
 	if (_load_image(display->mlx, &display->ground, PATH_TO_GROUND_IMAGE) || \
 		_load_image(display->mlx, &display->wall, PATH_TO_WALL_IMAGE) || \

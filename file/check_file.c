@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:17:25 by marvin            #+#    #+#             */
-/*   Updated: 2022/06/11 12:17:27 by marvin           ###   ########.fr       */
+/*   Updated: 2022/06/11 15:20:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ static int	_is_closed(char **map)
 	return (1);
 }
 
-int	is_valid_map(char **map, e_err *err)
+int	is_valid_map(char **map, t_err *err)
 {
 	if (!_is_rectangle(map))
 		*err = NOT_RECTANGLE;

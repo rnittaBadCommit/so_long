@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:19:06 by marvin            #+#    #+#             */
-/*   Updated: 2022/06/11 12:19:08 by marvin           ###   ########.fr       */
+/*   Updated: 2022/06/11 15:20:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	_set_mlx_mlxwin(t_display *display)
 		display->resolution.y, display->name);
 }
 
-int	set_images(t_display *display, e_err *err)
+int	set_images(t_display *display, t_err *err)
 {
 	if (load_texture(display, err) == FAILED)
 	{
@@ -34,7 +34,7 @@ int	set_images(t_display *display, e_err *err)
 	return (SUCCESS);
 }
 
-int	set_display(t_display *display, t_map *map, e_err *err)
+int	set_display(t_display *display, t_map *map, t_err *err)
 {
 	display->name = DISPLAY_NAME;
 	_set_resolution(&display->resolution, map);

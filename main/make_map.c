@@ -6,13 +6,13 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:18:39 by marvin            #+#    #+#             */
-/*   Updated: 2022/06/11 12:18:41 by marvin           ###   ########.fr       */
+/*   Updated: 2022/06/11 15:20:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-static char	**_make_map_map(char *file_name, e_err *err)
+static char	**_make_map_map(char *file_name, t_err *err)
 {
 	int	fd;
 
@@ -68,7 +68,7 @@ int	_count_num_collect(t_map map)
 	return (ret);
 }
 
-t_map	make_map(char *file_name, e_err *err)
+t_map	make_map(char *file_name, t_err *err)
 {
 	t_map	map;
 

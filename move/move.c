@@ -6,13 +6,13 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:18:50 by marvin            #+#    #+#             */
-/*   Updated: 2022/06/11 12:18:51 by marvin           ###   ########.fr       */
+/*   Updated: 2022/06/11 15:19:51 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	move(e_dir dir, t_me *me, char **map)
+int	move(t_dir dir, t_me *me, char **map)
 {
 	me->previous_pos = me->current_pos;
 	if (dir == LEFT && map[me->current_pos.y][me->current_pos.x - 1] != '1')

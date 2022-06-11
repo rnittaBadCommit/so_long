@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:19:13 by marvin            #+#    #+#             */
-/*   Updated: 2022/06/11 14:14:02 by marvin           ###   ########.fr       */
+/*   Updated: 2022/06/11 15:20:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	_set_image_image_buffer(t_image *img, t_display *display, t_map *map)
 }
 
 static t_image	_make_image_buffer(void *mlx, \
-	t_resolution resolution, e_err *err)
+	t_resolution resolution, t_err *err)
 {
 	t_image	img;
 
@@ -41,7 +41,7 @@ static t_image	_make_image_buffer(void *mlx, \
 	return (img);
 }
 
-int	set_image_buffer(t_image *img, t_display *display, t_map *map, e_err *err)
+int	set_image_buffer(t_image *img, t_display *display, t_map *map, t_err *err)
 {
 	*img = _make_image_buffer(display->mlx, display->resolution, err);
 	if (*err != NO_ERR)
