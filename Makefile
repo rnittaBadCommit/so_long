@@ -4,7 +4,7 @@ INCLUDE = -I/usr/include -Imlx_linux -O3
 LINK = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 SANI = -g -fsanitize=address
 FLAGSEC = -L./lib/ -lmlx_Linux -Wall -lXext -lX11 -lm
-NAME = miniRT
+NAME = so_long
 SRC_ERR=./err/err.c
 SRC_EXIT=./exit/exit.c
 SRC_FILE=./file/check_file.c ./file/read_file.c ./file/is_valid_char.c
