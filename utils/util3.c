@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:21:02 by marvin            #+#    #+#             */
-/*   Updated: 2022/06/11 12:22:16 by marvin           ###   ########.fr       */
+/*   Updated: 2022/06/11 12:32:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_putnbr(int n)
 		ft_putchar((n + '0'));
 }
 
-static	char	*ft_strncpy(char *dest, char *src, int n)
+char	*ft_strncpy(char *dest, char *src, int n)
 {
 	char		*tmp;
 	int			i;
