@@ -36,7 +36,7 @@ t_image_addr	*_correspond_image_addr(t_display *display, \
 
 void	set_screen_from_map(t_all *all)
 {
-	t_pos		pos;
+	t_pos			pos;
 	t_image_addr	*image_addr;
 
 	pos.y = 0;

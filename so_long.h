@@ -55,8 +55,8 @@ typedef void	t_image_data;
 typedef struct s_image
 {
 	t_resolution	resolution;
-	t_image_addr		*image_addr;
-	t_image_data		*data_addr;
+	t_image_addr	*image_addr;
+	t_image_data	*data_addr;
 	int				bits_per_pixel;
 	int				line_length;
 	int				endian;
@@ -184,6 +184,6 @@ int				ft_strcmp(char *s1, char *s2);
 void			ft_bzero(void *p, int n);
 void			ft_memcpy(char *dest, char *src, int len);
 char			**ft_split(char *s, char c);
-static	char	*ft_strncpy(char *dest, char *src, int n)
+static	char	*ft_strncpy(char *dest, char *src, int n);
 
 #endif
