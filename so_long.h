@@ -184,5 +184,6 @@ int				ft_strcmp(char *s1, char *s2);
 void			ft_bzero(void *p, int n);
 void			ft_memcpy(char *dest, char *src, int len);
 char			**ft_split(char *s, char c);
+static	char	*ft_strncpy(char *dest, char *src, int n)
 
 #endif

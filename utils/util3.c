@@ -1,39 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   util3.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/11 12:18:36 by marvin            #+#    #+#             */
-/*   Updated: 2022/06/11 12:18:37 by marvin           ###   ########.fr       */
+/*   Created: 2022/06/11 12:21:02 by marvin            #+#    #+#             */
+/*   Updated: 2022/06/11 12:22:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	finalize(t_all *all)
+void	ft_putchar(char c)
 {
-	ft_exit(all);
+	if (write(1, &c, 1))
+		return ;
 }
 
-static void	_ini_all(t_all *all)
+void	ft_putnbr(int n)
 {
-	ft_bzero(all, sizeof(t_all));
-	all->err = NO_ERR;
+	if (n > 9)
+	{
+		ft_putnbr((n / 10));
+		ft_putchar((n % 10 + '0'));
+	}
+	else
+		ft_putchar((n + '0'));
 }
 
-int	main(int argc, char **argv)
+static	char	*ft_strncpy(char *dest, char *src, int n)
 {
-	t_all	all;
+	char		*tmp;
+	int			i;
 
-	_ini_all(&all);
-	if (!is_valid_args(argc, argv, &all.err))
-		ft_error(&all);
-	all.map = make_map(argv[1], &all.err);
-	if (all.map.map == NULL)
-		ft_error(&all);
-	if (!is_valid_map(all.map.map, &all.err))
-		ft_error(&all);
-	screen_main(&all);
+	tmp = dest;
+	i = 0;
+	while (*src != '\0' && i++ < n)
+		*dest++ = *src++;
+	*dest = '\0';
+	return (tmp);
 }

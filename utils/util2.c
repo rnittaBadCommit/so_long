@@ -1,17 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   util2.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/11 12:22:39 by marvin            #+#    #+#             */
+/*   Updated: 2022/06/11 12:22:40 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../so_long.h"
-
-static	char	*ft_strncpy(char *dest, char *src, int n)
-{
-	char		*tmp;
-	int			i;
-
-	tmp = dest;
-	i = 0;
-	while (*src != '\0' && i++ < n)
-		*dest++ = *src++;
-	*dest = '\0';
-	return (tmp);
-}
 
 char	*ft_strndup(char *str, int n)
 {
