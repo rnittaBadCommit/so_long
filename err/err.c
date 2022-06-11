@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:17:03 by marvin            #+#    #+#             */
-/*   Updated: 2022/06/11 12:17:08 by marvin           ###   ########.fr       */
+/*   Updated: 2022/06/12 04:28:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_error(t_all *all)
 	else if (all->err == INVALID_CHAR)
 		ft_write(2, "map: contains invalid char\n", all);
 	else if (all->err == INVALID_CHAR_NUM)
-		ft_write(2, "map: contains invalid components\n", all);
+		ft_write(2, "map: contains invalid num\n", all);
 	else if (all->err == NOT_CLOSED_MAP)
 		ft_write(2, "map: not closed\n", all);
 	else if (all->err == MLX_LIB_ERR)

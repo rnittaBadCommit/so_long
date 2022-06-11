@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 15:30:04 by marvin            #+#    #+#             */
-/*   Updated: 2022/06/12 03:13:42 by marvin           ###   ########.fr       */
+/*   Updated: 2022/06/12 04:16:11 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,5 +197,6 @@ void			ft_bzero(void *p, int n);
 void			ft_memcpy(char *dest, char *src, int len);
 char			**ft_split(char *s, char c);
 char			*ft_strncpy(char *dest, char *src, int n);
+char			*ft_strrchr(const char *s, int c);
 
 #endif

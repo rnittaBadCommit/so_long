@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:21:02 by marvin            #+#    #+#             */
-/*   Updated: 2022/06/11 12:32:16 by marvin           ###   ########.fr       */
+/*   Updated: 2022/06/12 04:26:57 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,20 @@ char	*ft_strncpy(char *dest, char *src, int n)
 		*dest++ = *src++;
 	*dest = '\0';
 	return (tmp);
+}
+
+char	*ft_strrchr(const char *s, int c)
+{
+	const char	*ptr;
+	size_t		i;
+
+	ptr = NULL;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == (char)c)
+			ptr = &s[i];
+		i++;
+	}
+	return ((char *)ptr);
 }

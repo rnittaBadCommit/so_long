@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 12:18:31 by marvin            #+#    #+#             */
-/*   Updated: 2022/06/11 15:20:23 by marvin           ###   ########.fr       */
+/*   Updated: 2022/06/12 04:22:25 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,12 @@ static int	_is_valid_arg_num(int argc)
 //".ber" is invalid
 static int	_is_valid_file_name(char *file_name)
 {
-	while (*file_name)
-	{
-		file_name++;
-		if (*file_name == '.')
-		{
-			if (!ft_strcmp(file_name, ".ber"))
+	char	*dot_addr;
+
+	dot_addr = ft_strrchr(file_name, '.');
+	if (dot_addr && dot_addr != file_name)
+		if (!ft_strcmp(dot_addr, ".ber"))
 				return (1);
-		}
-	}
 	return (0);
 }
 
